@@ -82,14 +82,15 @@ namespace GladLive.Module.System.Server
 		{
 			string pathName = arg2.Name.Contains(".dll") ? arg2.Name : $"{arg2.Name}.dll";
 
-			//Try to load it from the current directory first.
-			using (FileStream fs = new FileStream(Path.Combine(Directory.GetCurrentDirectory(), pathName), FileMode.Open))
-			{
-				Assembly ass = arg1.LoadFromStream(fs);
+			if(File.Exists(Path.Combine(Directory.GetCurrentDirectory(), pathName)))
+				//Try to load it from the current directory first.
+				using (FileStream fs = new FileStream(Path.Combine(Directory.GetCurrentDirectory(), pathName), FileMode.Open))
+				{
+					Assembly ass = arg1.LoadFromStream(fs);
 
-				if (ass != null)
-					return ass;
-			}
+					if (ass != null)
+						return ass;
+				}
 
 			//recurse through every subdirectory and subdirectories' subdirectories.
 			return TryResolveFromDirectory(arg1, Directory.GetCurrentDirectory(), pathName);
@@ -101,13 +102,14 @@ namespace GladLive.Module.System.Server
 			{
 				try
 				{
-					using (FileStream fs = new FileStream(Path.Combine(subDir, pathName), FileMode.Open))
-					{
-						Assembly ass = context.LoadFromStream(fs);
+					if (File.Exists(Path.Combine(subDir, pathName)))
+						using (FileStream fs = new FileStream(Path.Combine(subDir, pathName), FileMode.Open))
+						{
+							Assembly ass = context.LoadFromStream(fs);
 
-						if (ass != null)
-							return ass;
-					}
+							if (ass != null)
+								return ass;
+						}
 				}
 				catch (Exception e)
 				{
