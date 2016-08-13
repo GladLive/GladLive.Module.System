@@ -18,7 +18,7 @@ namespace GladLive.Module.System.Server
 		public List<string> ApplicationConfigurationModulesPaths { get; set; }
 
 		/// <summary>
-		/// Collection of paths that point to assemblies with <see cref="ServiceRegistrationModule"/>s.
+		/// Collection of paths that point to assemblies with <see cref="ServiceRegistrationModule"/>s and <see cref="MvcBuilderServiceRegistrationModule"/>s.
 		/// Order should not matter for DI/Service registration.
 		/// </summary>
 		public List<string> ServiceRegistrationModulesPaths { get; set; }

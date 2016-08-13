@@ -567,6 +567,47 @@
           "lib/net451/Microsoft.EntityFrameworkCore.dll": {}
         }
       },
+      "Microsoft.EntityFrameworkCore.InMemory/1.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "1.0.0"
+        },
+        "compile": {
+          "lib/net451/Microsoft.EntityFrameworkCore.InMemory.dll": {}
+        },
+        "runtime": {
+          "lib/net451/Microsoft.EntityFrameworkCore.InMemory.dll": {}
+        }
+      },
+      "Microsoft.EntityFrameworkCore.Relational/1.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "1.0.0",
+          "System.Diagnostics.DiagnosticSource": "4.0.0"
+        },
+        "frameworkAssemblies": [
+          "System.Data",
+          "System.Transactions"
+        ],
+        "compile": {
+          "lib/net451/Microsoft.EntityFrameworkCore.Relational.dll": {}
+        },
+        "runtime": {
+          "lib/net451/Microsoft.EntityFrameworkCore.Relational.dll": {}
+        }
+      },
+      "Microsoft.EntityFrameworkCore.SqlServer/1.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.Relational": "1.0.0"
+        },
+        "compile": {
+          "lib/net451/Microsoft.EntityFrameworkCore.SqlServer.dll": {}
+        },
+        "runtime": {
+          "lib/net451/Microsoft.EntityFrameworkCore.SqlServer.dll": {}
+        }
+      },
       "Microsoft.Extensions.Caching.Abstractions/1.0.0": {
         "type": "package",
         "dependencies": {
@@ -596,6 +637,25 @@
           "lib/net451/Microsoft.Extensions.Caching.Memory.dll": {}
         }
       },
+      "Microsoft.Extensions.Configuration/1.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "1.0.0",
+          "System.Collections": "4.0.11",
+          "System.Diagnostics.Debug": "4.0.11",
+          "System.IO": "4.1.0",
+          "System.Resources.ResourceManager": "4.0.1",
+          "System.Runtime.Extensions": "4.1.0",
+          "System.Runtime.InteropServices": "4.1.0",
+          "System.Threading": "4.0.11"
+        },
+        "compile": {
+          "lib/netstandard1.1/Microsoft.Extensions.Configuration.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.1/Microsoft.Extensions.Configuration.dll": {}
+        }
+      },
       "Microsoft.Extensions.Configuration.Abstractions/1.0.0": {
         "type": "package",
         "dependencies": {
@@ -607,6 +667,58 @@
         },
         "runtime": {
           "lib/netstandard1.0/Microsoft.Extensions.Configuration.Abstractions.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Configuration.Binder/1.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration": "1.0.0",
+          "System.ComponentModel.TypeConverter": "4.1.0"
+        },
+        "compile": {
+          "lib/netstandard1.1/Microsoft.Extensions.Configuration.Binder.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.1/Microsoft.Extensions.Configuration.Binder.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Configuration.EnvironmentVariables/1.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration": "1.0.0"
+        },
+        "compile": {
+          "lib/net451/Microsoft.Extensions.Configuration.EnvironmentVariables.dll": {}
+        },
+        "runtime": {
+          "lib/net451/Microsoft.Extensions.Configuration.EnvironmentVariables.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Configuration.FileExtensions/1.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration": "1.0.0",
+          "Microsoft.Extensions.FileProviders.Physical": "1.0.0"
+        },
+        "compile": {
+          "lib/net451/Microsoft.Extensions.Configuration.FileExtensions.dll": {}
+        },
+        "runtime": {
+          "lib/net451/Microsoft.Extensions.Configuration.FileExtensions.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Configuration.Json/1.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration": "1.0.0",
+          "Microsoft.Extensions.Configuration.FileExtensions": "1.0.0",
+          "Newtonsoft.Json": "9.0.1"
+        },
+        "compile": {
+          "lib/net451/Microsoft.Extensions.Configuration.Json.dll": {}
+        },
+        "runtime": {
+          "lib/net451/Microsoft.Extensions.Configuration.Json.dll": {}
         }
       },
       "Microsoft.Extensions.DependencyInjection/1.0.0": {
@@ -782,6 +894,20 @@
           "lib/netstandard1.1/Microsoft.Extensions.Logging.Abstractions.dll": {}
         }
       },
+      "Microsoft.Extensions.Logging.Console/1.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "1.0.0",
+          "Microsoft.Extensions.Logging.Abstractions": "1.0.0",
+          "System.Runtime.InteropServices.RuntimeInformation": "4.0.0"
+        },
+        "compile": {
+          "lib/net451/Microsoft.Extensions.Logging.Console.dll": {}
+        },
+        "runtime": {
+          "lib/net451/Microsoft.Extensions.Logging.Console.dll": {}
+        }
+      },
       "Microsoft.Extensions.ObjectPool/1.0.0": {
         "type": "package",
         "compile": {
@@ -811,6 +937,21 @@
         },
         "runtime": {
           "lib/netstandard1.0/Microsoft.Extensions.Options.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Options.ConfigurationExtensions/1.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "1.0.0",
+          "Microsoft.Extensions.Configuration.Binder": "1.0.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "1.0.0",
+          "Microsoft.Extensions.Options": "1.0.0"
+        },
+        "compile": {
+          "lib/netstandard1.1/Microsoft.Extensions.Options.ConfigurationExtensions.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.1/Microsoft.Extensions.Options.ConfigurationExtensions.dll": {}
         }
       },
       "Microsoft.Extensions.PlatformAbstractions/1.0.0": {
@@ -1171,6 +1312,25 @@
         },
         "runtime": {
           "lib/net45/_._": {}
+        }
+      },
+      "System.Runtime.InteropServices.RuntimeInformation/4.0.0": {
+        "type": "package",
+        "compile": {
+          "ref/netstandard1.1/System.Runtime.InteropServices.RuntimeInformation.dll": {}
+        },
+        "runtime": {
+          "lib/net45/System.Runtime.InteropServices.RuntimeInformation.dll": {}
+        },
+        "runtimeTargets": {
+          "runtimes/unix/lib/netstandard1.1/System.Runtime.InteropServices.RuntimeInformation.dll": {
+            "assetType": "runtime",
+            "rid": "unix"
+          },
+          "runtimes/win/lib/net45/System.Runtime.InteropServices.RuntimeInformation.dll": {
+            "assetType": "runtime",
+            "rid": "win"
+          }
         }
       },
       "System.Runtime.Serialization.Primitives/4.1.1": {
@@ -1817,6 +1977,47 @@
           "lib/net451/Microsoft.EntityFrameworkCore.dll": {}
         }
       },
+      "Microsoft.EntityFrameworkCore.InMemory/1.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "1.0.0"
+        },
+        "compile": {
+          "lib/net451/Microsoft.EntityFrameworkCore.InMemory.dll": {}
+        },
+        "runtime": {
+          "lib/net451/Microsoft.EntityFrameworkCore.InMemory.dll": {}
+        }
+      },
+      "Microsoft.EntityFrameworkCore.Relational/1.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "1.0.0",
+          "System.Diagnostics.DiagnosticSource": "4.0.0"
+        },
+        "frameworkAssemblies": [
+          "System.Data",
+          "System.Transactions"
+        ],
+        "compile": {
+          "lib/net451/Microsoft.EntityFrameworkCore.Relational.dll": {}
+        },
+        "runtime": {
+          "lib/net451/Microsoft.EntityFrameworkCore.Relational.dll": {}
+        }
+      },
+      "Microsoft.EntityFrameworkCore.SqlServer/1.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.Relational": "1.0.0"
+        },
+        "compile": {
+          "lib/net451/Microsoft.EntityFrameworkCore.SqlServer.dll": {}
+        },
+        "runtime": {
+          "lib/net451/Microsoft.EntityFrameworkCore.SqlServer.dll": {}
+        }
+      },
       "Microsoft.Extensions.Caching.Abstractions/1.0.0": {
         "type": "package",
         "dependencies": {
@@ -1846,6 +2047,25 @@
           "lib/net451/Microsoft.Extensions.Caching.Memory.dll": {}
         }
       },
+      "Microsoft.Extensions.Configuration/1.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "1.0.0",
+          "System.Collections": "4.0.11",
+          "System.Diagnostics.Debug": "4.0.11",
+          "System.IO": "4.1.0",
+          "System.Resources.ResourceManager": "4.0.1",
+          "System.Runtime.Extensions": "4.1.0",
+          "System.Runtime.InteropServices": "4.1.0",
+          "System.Threading": "4.0.11"
+        },
+        "compile": {
+          "lib/netstandard1.1/Microsoft.Extensions.Configuration.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.1/Microsoft.Extensions.Configuration.dll": {}
+        }
+      },
       "Microsoft.Extensions.Configuration.Abstractions/1.0.0": {
         "type": "package",
         "dependencies": {
@@ -1857,6 +2077,58 @@
         },
         "runtime": {
           "lib/netstandard1.0/Microsoft.Extensions.Configuration.Abstractions.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Configuration.Binder/1.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration": "1.0.0",
+          "System.ComponentModel.TypeConverter": "4.1.0"
+        },
+        "compile": {
+          "lib/netstandard1.1/Microsoft.Extensions.Configuration.Binder.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.1/Microsoft.Extensions.Configuration.Binder.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Configuration.EnvironmentVariables/1.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration": "1.0.0"
+        },
+        "compile": {
+          "lib/net451/Microsoft.Extensions.Configuration.EnvironmentVariables.dll": {}
+        },
+        "runtime": {
+          "lib/net451/Microsoft.Extensions.Configuration.EnvironmentVariables.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Configuration.FileExtensions/1.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration": "1.0.0",
+          "Microsoft.Extensions.FileProviders.Physical": "1.0.0"
+        },
+        "compile": {
+          "lib/net451/Microsoft.Extensions.Configuration.FileExtensions.dll": {}
+        },
+        "runtime": {
+          "lib/net451/Microsoft.Extensions.Configuration.FileExtensions.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Configuration.Json/1.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration": "1.0.0",
+          "Microsoft.Extensions.Configuration.FileExtensions": "1.0.0",
+          "Newtonsoft.Json": "9.0.1"
+        },
+        "compile": {
+          "lib/net451/Microsoft.Extensions.Configuration.Json.dll": {}
+        },
+        "runtime": {
+          "lib/net451/Microsoft.Extensions.Configuration.Json.dll": {}
         }
       },
       "Microsoft.Extensions.DependencyInjection/1.0.0": {
@@ -2032,6 +2304,20 @@
           "lib/netstandard1.1/Microsoft.Extensions.Logging.Abstractions.dll": {}
         }
       },
+      "Microsoft.Extensions.Logging.Console/1.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "1.0.0",
+          "Microsoft.Extensions.Logging.Abstractions": "1.0.0",
+          "System.Runtime.InteropServices.RuntimeInformation": "4.0.0"
+        },
+        "compile": {
+          "lib/net451/Microsoft.Extensions.Logging.Console.dll": {}
+        },
+        "runtime": {
+          "lib/net451/Microsoft.Extensions.Logging.Console.dll": {}
+        }
+      },
       "Microsoft.Extensions.ObjectPool/1.0.0": {
         "type": "package",
         "compile": {
@@ -2061,6 +2347,21 @@
         },
         "runtime": {
           "lib/netstandard1.0/Microsoft.Extensions.Options.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Options.ConfigurationExtensions/1.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "1.0.0",
+          "Microsoft.Extensions.Configuration.Binder": "1.0.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "1.0.0",
+          "Microsoft.Extensions.Options": "1.0.0"
+        },
+        "compile": {
+          "lib/netstandard1.1/Microsoft.Extensions.Options.ConfigurationExtensions.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.1/Microsoft.Extensions.Options.ConfigurationExtensions.dll": {}
         }
       },
       "Microsoft.Extensions.PlatformAbstractions/1.0.0": {
@@ -2421,6 +2722,25 @@
         },
         "runtime": {
           "lib/net45/_._": {}
+        }
+      },
+      "System.Runtime.InteropServices.RuntimeInformation/4.0.0": {
+        "type": "package",
+        "compile": {
+          "ref/netstandard1.1/System.Runtime.InteropServices.RuntimeInformation.dll": {}
+        },
+        "runtime": {
+          "lib/net45/System.Runtime.InteropServices.RuntimeInformation.dll": {}
+        },
+        "runtimeTargets": {
+          "runtimes/unix/lib/netstandard1.1/System.Runtime.InteropServices.RuntimeInformation.dll": {
+            "assetType": "runtime",
+            "rid": "unix"
+          },
+          "runtimes/win/lib/net45/System.Runtime.InteropServices.RuntimeInformation.dll": {
+            "assetType": "runtime",
+            "rid": "win"
+          }
         }
       },
       "System.Runtime.Serialization.Primitives/4.1.1": {
@@ -3103,6 +3423,47 @@
           "lib/net451/Microsoft.EntityFrameworkCore.dll": {}
         }
       },
+      "Microsoft.EntityFrameworkCore.InMemory/1.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "1.0.0"
+        },
+        "compile": {
+          "lib/net451/Microsoft.EntityFrameworkCore.InMemory.dll": {}
+        },
+        "runtime": {
+          "lib/net451/Microsoft.EntityFrameworkCore.InMemory.dll": {}
+        }
+      },
+      "Microsoft.EntityFrameworkCore.Relational/1.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "1.0.0",
+          "System.Diagnostics.DiagnosticSource": "4.0.0"
+        },
+        "frameworkAssemblies": [
+          "System.Data",
+          "System.Transactions"
+        ],
+        "compile": {
+          "lib/net451/Microsoft.EntityFrameworkCore.Relational.dll": {}
+        },
+        "runtime": {
+          "lib/net451/Microsoft.EntityFrameworkCore.Relational.dll": {}
+        }
+      },
+      "Microsoft.EntityFrameworkCore.SqlServer/1.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.Relational": "1.0.0"
+        },
+        "compile": {
+          "lib/net451/Microsoft.EntityFrameworkCore.SqlServer.dll": {}
+        },
+        "runtime": {
+          "lib/net451/Microsoft.EntityFrameworkCore.SqlServer.dll": {}
+        }
+      },
       "Microsoft.Extensions.Caching.Abstractions/1.0.0": {
         "type": "package",
         "dependencies": {
@@ -3132,6 +3493,25 @@
           "lib/net451/Microsoft.Extensions.Caching.Memory.dll": {}
         }
       },
+      "Microsoft.Extensions.Configuration/1.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "1.0.0",
+          "System.Collections": "4.0.11",
+          "System.Diagnostics.Debug": "4.0.11",
+          "System.IO": "4.1.0",
+          "System.Resources.ResourceManager": "4.0.1",
+          "System.Runtime.Extensions": "4.1.0",
+          "System.Runtime.InteropServices": "4.1.0",
+          "System.Threading": "4.0.11"
+        },
+        "compile": {
+          "lib/netstandard1.1/Microsoft.Extensions.Configuration.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.1/Microsoft.Extensions.Configuration.dll": {}
+        }
+      },
       "Microsoft.Extensions.Configuration.Abstractions/1.0.0": {
         "type": "package",
         "dependencies": {
@@ -3143,6 +3523,58 @@
         },
         "runtime": {
           "lib/netstandard1.0/Microsoft.Extensions.Configuration.Abstractions.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Configuration.Binder/1.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration": "1.0.0",
+          "System.ComponentModel.TypeConverter": "4.1.0"
+        },
+        "compile": {
+          "lib/netstandard1.1/Microsoft.Extensions.Configuration.Binder.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.1/Microsoft.Extensions.Configuration.Binder.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Configuration.EnvironmentVariables/1.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration": "1.0.0"
+        },
+        "compile": {
+          "lib/net451/Microsoft.Extensions.Configuration.EnvironmentVariables.dll": {}
+        },
+        "runtime": {
+          "lib/net451/Microsoft.Extensions.Configuration.EnvironmentVariables.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Configuration.FileExtensions/1.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration": "1.0.0",
+          "Microsoft.Extensions.FileProviders.Physical": "1.0.0"
+        },
+        "compile": {
+          "lib/net451/Microsoft.Extensions.Configuration.FileExtensions.dll": {}
+        },
+        "runtime": {
+          "lib/net451/Microsoft.Extensions.Configuration.FileExtensions.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Configuration.Json/1.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration": "1.0.0",
+          "Microsoft.Extensions.Configuration.FileExtensions": "1.0.0",
+          "Newtonsoft.Json": "9.0.1"
+        },
+        "compile": {
+          "lib/net451/Microsoft.Extensions.Configuration.Json.dll": {}
+        },
+        "runtime": {
+          "lib/net451/Microsoft.Extensions.Configuration.Json.dll": {}
         }
       },
       "Microsoft.Extensions.DependencyInjection/1.0.0": {
@@ -3318,6 +3750,20 @@
           "lib/netstandard1.1/Microsoft.Extensions.Logging.Abstractions.dll": {}
         }
       },
+      "Microsoft.Extensions.Logging.Console/1.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "1.0.0",
+          "Microsoft.Extensions.Logging.Abstractions": "1.0.0",
+          "System.Runtime.InteropServices.RuntimeInformation": "4.0.0"
+        },
+        "compile": {
+          "lib/net451/Microsoft.Extensions.Logging.Console.dll": {}
+        },
+        "runtime": {
+          "lib/net451/Microsoft.Extensions.Logging.Console.dll": {}
+        }
+      },
       "Microsoft.Extensions.ObjectPool/1.0.0": {
         "type": "package",
         "compile": {
@@ -3347,6 +3793,21 @@
         },
         "runtime": {
           "lib/netstandard1.0/Microsoft.Extensions.Options.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Options.ConfigurationExtensions/1.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "1.0.0",
+          "Microsoft.Extensions.Configuration.Binder": "1.0.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "1.0.0",
+          "Microsoft.Extensions.Options": "1.0.0"
+        },
+        "compile": {
+          "lib/netstandard1.1/Microsoft.Extensions.Options.ConfigurationExtensions.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.1/Microsoft.Extensions.Options.ConfigurationExtensions.dll": {}
         }
       },
       "Microsoft.Extensions.PlatformAbstractions/1.0.0": {
@@ -3838,6 +4299,25 @@
         },
         "runtime": {
           "lib/net45/_._": {}
+        }
+      },
+      "System.Runtime.InteropServices.RuntimeInformation/4.0.0": {
+        "type": "package",
+        "compile": {
+          "ref/netstandard1.1/System.Runtime.InteropServices.RuntimeInformation.dll": {}
+        },
+        "runtime": {
+          "lib/net45/System.Runtime.InteropServices.RuntimeInformation.dll": {}
+        },
+        "runtimeTargets": {
+          "runtimes/unix/lib/netstandard1.1/System.Runtime.InteropServices.RuntimeInformation.dll": {
+            "assetType": "runtime",
+            "rid": "unix"
+          },
+          "runtimes/win/lib/net45/System.Runtime.InteropServices.RuntimeInformation.dll": {
+            "assetType": "runtime",
+            "rid": "win"
+          }
         }
       },
       "System.Runtime.Numerics/4.0.1": {
@@ -4721,6 +5201,47 @@
           "lib/net451/Microsoft.EntityFrameworkCore.dll": {}
         }
       },
+      "Microsoft.EntityFrameworkCore.InMemory/1.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "1.0.0"
+        },
+        "compile": {
+          "lib/net451/Microsoft.EntityFrameworkCore.InMemory.dll": {}
+        },
+        "runtime": {
+          "lib/net451/Microsoft.EntityFrameworkCore.InMemory.dll": {}
+        }
+      },
+      "Microsoft.EntityFrameworkCore.Relational/1.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "1.0.0",
+          "System.Diagnostics.DiagnosticSource": "4.0.0"
+        },
+        "frameworkAssemblies": [
+          "System.Data",
+          "System.Transactions"
+        ],
+        "compile": {
+          "lib/net451/Microsoft.EntityFrameworkCore.Relational.dll": {}
+        },
+        "runtime": {
+          "lib/net451/Microsoft.EntityFrameworkCore.Relational.dll": {}
+        }
+      },
+      "Microsoft.EntityFrameworkCore.SqlServer/1.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.Relational": "1.0.0"
+        },
+        "compile": {
+          "lib/net451/Microsoft.EntityFrameworkCore.SqlServer.dll": {}
+        },
+        "runtime": {
+          "lib/net451/Microsoft.EntityFrameworkCore.SqlServer.dll": {}
+        }
+      },
       "Microsoft.Extensions.Caching.Abstractions/1.0.0": {
         "type": "package",
         "dependencies": {
@@ -4750,6 +5271,25 @@
           "lib/net451/Microsoft.Extensions.Caching.Memory.dll": {}
         }
       },
+      "Microsoft.Extensions.Configuration/1.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "1.0.0",
+          "System.Collections": "4.0.11",
+          "System.Diagnostics.Debug": "4.0.11",
+          "System.IO": "4.1.0",
+          "System.Resources.ResourceManager": "4.0.1",
+          "System.Runtime.Extensions": "4.1.0",
+          "System.Runtime.InteropServices": "4.1.0",
+          "System.Threading": "4.0.11"
+        },
+        "compile": {
+          "lib/netstandard1.1/Microsoft.Extensions.Configuration.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.1/Microsoft.Extensions.Configuration.dll": {}
+        }
+      },
       "Microsoft.Extensions.Configuration.Abstractions/1.0.0": {
         "type": "package",
         "dependencies": {
@@ -4761,6 +5301,58 @@
         },
         "runtime": {
           "lib/netstandard1.0/Microsoft.Extensions.Configuration.Abstractions.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Configuration.Binder/1.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration": "1.0.0",
+          "System.ComponentModel.TypeConverter": "4.1.0"
+        },
+        "compile": {
+          "lib/netstandard1.1/Microsoft.Extensions.Configuration.Binder.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.1/Microsoft.Extensions.Configuration.Binder.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Configuration.EnvironmentVariables/1.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration": "1.0.0"
+        },
+        "compile": {
+          "lib/net451/Microsoft.Extensions.Configuration.EnvironmentVariables.dll": {}
+        },
+        "runtime": {
+          "lib/net451/Microsoft.Extensions.Configuration.EnvironmentVariables.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Configuration.FileExtensions/1.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration": "1.0.0",
+          "Microsoft.Extensions.FileProviders.Physical": "1.0.0"
+        },
+        "compile": {
+          "lib/net451/Microsoft.Extensions.Configuration.FileExtensions.dll": {}
+        },
+        "runtime": {
+          "lib/net451/Microsoft.Extensions.Configuration.FileExtensions.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Configuration.Json/1.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration": "1.0.0",
+          "Microsoft.Extensions.Configuration.FileExtensions": "1.0.0",
+          "Newtonsoft.Json": "9.0.1"
+        },
+        "compile": {
+          "lib/net451/Microsoft.Extensions.Configuration.Json.dll": {}
+        },
+        "runtime": {
+          "lib/net451/Microsoft.Extensions.Configuration.Json.dll": {}
         }
       },
       "Microsoft.Extensions.DependencyInjection/1.0.0": {
@@ -4936,6 +5528,20 @@
           "lib/netstandard1.1/Microsoft.Extensions.Logging.Abstractions.dll": {}
         }
       },
+      "Microsoft.Extensions.Logging.Console/1.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "1.0.0",
+          "Microsoft.Extensions.Logging.Abstractions": "1.0.0",
+          "System.Runtime.InteropServices.RuntimeInformation": "4.0.0"
+        },
+        "compile": {
+          "lib/net451/Microsoft.Extensions.Logging.Console.dll": {}
+        },
+        "runtime": {
+          "lib/net451/Microsoft.Extensions.Logging.Console.dll": {}
+        }
+      },
       "Microsoft.Extensions.ObjectPool/1.0.0": {
         "type": "package",
         "compile": {
@@ -4965,6 +5571,21 @@
         },
         "runtime": {
           "lib/netstandard1.0/Microsoft.Extensions.Options.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Options.ConfigurationExtensions/1.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "1.0.0",
+          "Microsoft.Extensions.Configuration.Binder": "1.0.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "1.0.0",
+          "Microsoft.Extensions.Options": "1.0.0"
+        },
+        "compile": {
+          "lib/netstandard1.1/Microsoft.Extensions.Options.ConfigurationExtensions.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.1/Microsoft.Extensions.Options.ConfigurationExtensions.dll": {}
         }
       },
       "Microsoft.Extensions.PlatformAbstractions/1.0.0": {
@@ -5456,6 +6077,25 @@
         },
         "runtime": {
           "lib/net45/_._": {}
+        }
+      },
+      "System.Runtime.InteropServices.RuntimeInformation/4.0.0": {
+        "type": "package",
+        "compile": {
+          "ref/netstandard1.1/System.Runtime.InteropServices.RuntimeInformation.dll": {}
+        },
+        "runtime": {
+          "lib/net45/System.Runtime.InteropServices.RuntimeInformation.dll": {}
+        },
+        "runtimeTargets": {
+          "runtimes/unix/lib/netstandard1.1/System.Runtime.InteropServices.RuntimeInformation.dll": {
+            "assetType": "runtime",
+            "rid": "unix"
+          },
+          "runtimes/win/lib/net45/System.Runtime.InteropServices.RuntimeInformation.dll": {
+            "assetType": "runtime",
+            "rid": "win"
+          }
         }
       },
       "System.Runtime.Numerics/4.0.1": {
@@ -6426,6 +7066,48 @@
           "lib/netstandard1.3/Microsoft.EntityFrameworkCore.dll": {}
         }
       },
+      "Microsoft.EntityFrameworkCore.InMemory/1.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "1.0.0"
+        },
+        "compile": {
+          "lib/netstandard1.3/Microsoft.EntityFrameworkCore.InMemory.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/Microsoft.EntityFrameworkCore.InMemory.dll": {}
+        }
+      },
+      "Microsoft.EntityFrameworkCore.Relational/1.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.CSharp": "4.0.1",
+          "Microsoft.EntityFrameworkCore": "1.0.0",
+          "System.Data.Common": "4.1.0",
+          "System.Diagnostics.DiagnosticSource": "4.0.0",
+          "System.Text.RegularExpressions": "4.1.0"
+        },
+        "compile": {
+          "lib/netstandard1.3/Microsoft.EntityFrameworkCore.Relational.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/Microsoft.EntityFrameworkCore.Relational.dll": {}
+        }
+      },
+      "Microsoft.EntityFrameworkCore.SqlServer/1.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.Relational": "1.0.0",
+          "System.Data.SqlClient": "4.1.0",
+          "System.Threading.Thread": "4.0.0"
+        },
+        "compile": {
+          "lib/netstandard1.3/Microsoft.EntityFrameworkCore.SqlServer.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/Microsoft.EntityFrameworkCore.SqlServer.dll": {}
+        }
+      },
       "Microsoft.Extensions.Caching.Abstractions/1.0.0": {
         "type": "package",
         "dependencies": {
@@ -6457,6 +7139,25 @@
           "lib/netstandard1.3/Microsoft.Extensions.Caching.Memory.dll": {}
         }
       },
+      "Microsoft.Extensions.Configuration/1.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "1.0.0",
+          "System.Collections": "4.0.11",
+          "System.Diagnostics.Debug": "4.0.11",
+          "System.IO": "4.1.0",
+          "System.Resources.ResourceManager": "4.0.1",
+          "System.Runtime.Extensions": "4.1.0",
+          "System.Runtime.InteropServices": "4.1.0",
+          "System.Threading": "4.0.11"
+        },
+        "compile": {
+          "lib/netstandard1.1/Microsoft.Extensions.Configuration.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.1/Microsoft.Extensions.Configuration.dll": {}
+        }
+      },
       "Microsoft.Extensions.Configuration.Abstractions/1.0.0": {
         "type": "package",
         "dependencies": {
@@ -6468,6 +7169,62 @@
         },
         "runtime": {
           "lib/netstandard1.0/Microsoft.Extensions.Configuration.Abstractions.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Configuration.Binder/1.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration": "1.0.0",
+          "System.ComponentModel.TypeConverter": "4.1.0"
+        },
+        "compile": {
+          "lib/netstandard1.1/Microsoft.Extensions.Configuration.Binder.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.1/Microsoft.Extensions.Configuration.Binder.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Configuration.EnvironmentVariables/1.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration": "1.0.0"
+        },
+        "compile": {
+          "lib/netstandard1.3/Microsoft.Extensions.Configuration.EnvironmentVariables.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/Microsoft.Extensions.Configuration.EnvironmentVariables.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Configuration.FileExtensions/1.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration": "1.0.0",
+          "Microsoft.Extensions.FileProviders.Physical": "1.0.0",
+          "System.AppContext": "4.1.0"
+        },
+        "compile": {
+          "lib/netstandard1.3/Microsoft.Extensions.Configuration.FileExtensions.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/Microsoft.Extensions.Configuration.FileExtensions.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Configuration.Json/1.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration": "1.0.0",
+          "Microsoft.Extensions.Configuration.FileExtensions": "1.0.0",
+          "Newtonsoft.Json": "9.0.1",
+          "System.Dynamic.Runtime": "4.0.11",
+          "System.IO.FileSystem": "4.0.1",
+          "System.Runtime.Serialization.Primitives": "4.1.1"
+        },
+        "compile": {
+          "lib/netstandard1.3/Microsoft.Extensions.Configuration.Json.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/Microsoft.Extensions.Configuration.Json.dll": {}
         }
       },
       "Microsoft.Extensions.DependencyInjection/1.0.0": {
@@ -6660,6 +7417,22 @@
           "lib/netstandard1.1/Microsoft.Extensions.Logging.Abstractions.dll": {}
         }
       },
+      "Microsoft.Extensions.Logging.Console/1.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "1.0.0",
+          "Microsoft.Extensions.Logging.Abstractions": "1.0.0",
+          "System.Console": "4.0.0",
+          "System.Runtime.InteropServices.RuntimeInformation": "4.0.0",
+          "System.Threading": "4.0.11"
+        },
+        "compile": {
+          "lib/netstandard1.3/Microsoft.Extensions.Logging.Console.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/Microsoft.Extensions.Logging.Console.dll": {}
+        }
+      },
       "Microsoft.Extensions.ObjectPool/1.0.0": {
         "type": "package",
         "dependencies": {
@@ -6695,6 +7468,21 @@
         },
         "runtime": {
           "lib/netstandard1.0/Microsoft.Extensions.Options.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Options.ConfigurationExtensions/1.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "1.0.0",
+          "Microsoft.Extensions.Configuration.Binder": "1.0.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "1.0.0",
+          "Microsoft.Extensions.Options": "1.0.0"
+        },
+        "compile": {
+          "lib/netstandard1.1/Microsoft.Extensions.Options.ConfigurationExtensions.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.1/Microsoft.Extensions.Options.ConfigurationExtensions.dll": {}
         }
       },
       "Microsoft.Extensions.PlatformAbstractions/1.0.0": {
@@ -6932,6 +7720,13 @@
           "lib/netstandard1.0/_._": {}
         }
       },
+      "runtime.native.System.Data.SqlClient.sni/4.0.0": {
+        "type": "package",
+        "dependencies": {
+          "runtime.win7-x64.runtime.native.System.Data.SqlClient.sni": "4.0.1",
+          "runtime.win7-x86.runtime.native.System.Data.SqlClient.sni": "4.0.1"
+        }
+      },
       "runtime.native.System.IO.Compression/4.1.0": {
         "type": "package",
         "dependencies": {
@@ -6958,6 +7753,19 @@
           "lib/netstandard1.0/_._": {}
         }
       },
+      "runtime.native.System.Net.Security/4.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "1.0.1",
+          "Microsoft.NETCore.Targets": "1.0.1"
+        },
+        "compile": {
+          "lib/netstandard1.0/_._": {}
+        },
+        "runtime": {
+          "lib/netstandard1.0/_._": {}
+        }
+      },
       "runtime.native.System.Security.Cryptography/4.0.0": {
         "type": "package",
         "dependencies": {
@@ -6969,6 +7777,24 @@
         },
         "runtime": {
           "lib/netstandard1.0/_._": {}
+        }
+      },
+      "runtime.win7-x64.runtime.native.System.Data.SqlClient.sni/4.0.1": {
+        "type": "package",
+        "runtimeTargets": {
+          "runtimes/win7-x64/native/sni.dll": {
+            "assetType": "native",
+            "rid": "win7-x64"
+          }
+        }
+      },
+      "runtime.win7-x86.runtime.native.System.Data.SqlClient.sni/4.0.1": {
+        "type": "package",
+        "runtimeTargets": {
+          "runtimes/win7-x86/native/sni.dll": {
+            "assetType": "native",
+            "rid": "win7-x86"
+          }
         }
       },
       "System.AppContext/4.1.0": {
@@ -7170,6 +7996,80 @@
         },
         "compile": {
           "ref/netstandard1.3/System.Console.dll": {}
+        }
+      },
+      "System.Data.Common/4.1.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Collections": "4.0.11",
+          "System.Globalization": "4.0.11",
+          "System.IO": "4.1.0",
+          "System.Resources.ResourceManager": "4.0.1",
+          "System.Runtime": "4.1.0",
+          "System.Runtime.Extensions": "4.1.0",
+          "System.Text.RegularExpressions": "4.1.0",
+          "System.Threading.Tasks": "4.0.11"
+        },
+        "compile": {
+          "ref/netstandard1.2/System.Data.Common.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.2/System.Data.Common.dll": {}
+        }
+      },
+      "System.Data.SqlClient/4.1.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "1.0.1",
+          "Microsoft.Win32.Primitives": "4.0.1",
+          "System.Collections": "4.0.11",
+          "System.Collections.Concurrent": "4.0.12",
+          "System.Data.Common": "4.1.0",
+          "System.Diagnostics.Debug": "4.0.11",
+          "System.Diagnostics.DiagnosticSource": "4.0.0",
+          "System.Globalization": "4.0.11",
+          "System.IO": "4.1.0",
+          "System.IO.Pipes": "4.0.0",
+          "System.Linq": "4.1.0",
+          "System.Net.NameResolution": "4.0.0",
+          "System.Net.Primitives": "4.0.11",
+          "System.Net.Security": "4.0.0",
+          "System.Net.Sockets": "4.1.0",
+          "System.Reflection": "4.1.0",
+          "System.Reflection.TypeExtensions": "4.1.0",
+          "System.Resources.ResourceManager": "4.0.1",
+          "System.Runtime": "4.1.0",
+          "System.Runtime.Extensions": "4.1.0",
+          "System.Runtime.Handles": "4.0.1",
+          "System.Runtime.InteropServices": "4.1.0",
+          "System.Runtime.InteropServices.RuntimeInformation": "4.0.0",
+          "System.Security.Cryptography.X509Certificates": "4.1.0",
+          "System.Security.Principal": "4.0.1",
+          "System.Security.Principal.Windows": "4.0.0",
+          "System.Text.Encoding": "4.0.11",
+          "System.Text.Encoding.CodePages": "4.0.1",
+          "System.Text.Encoding.Extensions": "4.0.11",
+          "System.Text.RegularExpressions": "4.1.0",
+          "System.Threading": "4.0.11",
+          "System.Threading.Tasks": "4.0.11",
+          "System.Threading.Thread": "4.0.0",
+          "System.Threading.ThreadPool": "4.0.10",
+          "System.Threading.Timer": "4.0.1",
+          "System.Xml.ReaderWriter": "4.0.11",
+          "runtime.native.System.Data.SqlClient.sni": "4.0.0"
+        },
+        "compile": {
+          "ref/netstandard1.3/System.Data.SqlClient.dll": {}
+        },
+        "runtimeTargets": {
+          "runtimes/unix/lib/netstandard1.3/System.Data.SqlClient.dll": {
+            "assetType": "runtime",
+            "rid": "unix"
+          },
+          "runtimes/win/lib/netstandard1.3/System.Data.SqlClient.dll": {
+            "assetType": "runtime",
+            "rid": "win"
+          }
         }
       },
       "System.Diagnostics.Contracts/4.0.1": {
@@ -7500,6 +8400,42 @@
           }
         }
       },
+      "System.IO.Pipes/4.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "1.0.1",
+          "System.Diagnostics.Debug": "4.0.11",
+          "System.IO": "4.1.0",
+          "System.IO.FileSystem.Primitives": "4.0.1",
+          "System.Net.Primitives": "4.0.11",
+          "System.Net.Sockets": "4.1.0",
+          "System.Reflection": "4.1.0",
+          "System.Resources.ResourceManager": "4.0.1",
+          "System.Runtime": "4.1.0",
+          "System.Runtime.Extensions": "4.1.0",
+          "System.Runtime.Handles": "4.0.1",
+          "System.Runtime.InteropServices": "4.1.0",
+          "System.Security.Principal": "4.0.1",
+          "System.Text.Encoding": "4.0.11",
+          "System.Threading": "4.0.11",
+          "System.Threading.Overlapped": "4.0.1",
+          "System.Threading.Tasks": "4.0.11",
+          "runtime.native.System": "4.0.0"
+        },
+        "compile": {
+          "ref/netstandard1.3/_._": {}
+        },
+        "runtimeTargets": {
+          "runtimes/unix/lib/netstandard1.3/System.IO.Pipes.dll": {
+            "assetType": "runtime",
+            "rid": "unix"
+          },
+          "runtimes/win/lib/netstandard1.3/System.IO.Pipes.dll": {
+            "assetType": "runtime",
+            "rid": "win"
+          }
+        }
+      },
       "System.Linq/4.1.0": {
         "type": "package",
         "dependencies": {
@@ -7607,6 +8543,38 @@
           }
         }
       },
+      "System.Net.NameResolution/4.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "1.0.1",
+          "System.Collections": "4.0.11",
+          "System.Diagnostics.Tracing": "4.1.0",
+          "System.Globalization": "4.0.11",
+          "System.Net.Primitives": "4.0.11",
+          "System.Resources.ResourceManager": "4.0.1",
+          "System.Runtime": "4.1.0",
+          "System.Runtime.Extensions": "4.1.0",
+          "System.Runtime.Handles": "4.0.1",
+          "System.Runtime.InteropServices": "4.1.0",
+          "System.Security.Principal.Windows": "4.0.0",
+          "System.Threading": "4.0.11",
+          "System.Threading.Tasks": "4.0.11",
+          "runtime.native.System": "4.0.0"
+        },
+        "compile": {
+          "ref/netstandard1.3/_._": {}
+        },
+        "runtimeTargets": {
+          "runtimes/unix/lib/netstandard1.3/System.Net.NameResolution.dll": {
+            "assetType": "runtime",
+            "rid": "unix"
+          },
+          "runtimes/win/lib/netstandard1.3/System.Net.NameResolution.dll": {
+            "assetType": "runtime",
+            "rid": "win"
+          }
+        }
+      },
       "System.Net.Primitives/4.0.11": {
         "type": "package",
         "dependencies": {
@@ -7617,6 +8585,52 @@
         },
         "compile": {
           "ref/netstandard1.3/System.Net.Primitives.dll": {}
+        }
+      },
+      "System.Net.Security/4.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "1.0.1",
+          "Microsoft.Win32.Primitives": "4.0.1",
+          "System.Collections": "4.0.11",
+          "System.Collections.Concurrent": "4.0.12",
+          "System.Diagnostics.Tracing": "4.1.0",
+          "System.Globalization": "4.0.11",
+          "System.Globalization.Extensions": "4.0.1",
+          "System.IO": "4.1.0",
+          "System.Net.Primitives": "4.0.11",
+          "System.Resources.ResourceManager": "4.0.1",
+          "System.Runtime": "4.1.0",
+          "System.Runtime.Extensions": "4.1.0",
+          "System.Runtime.Handles": "4.0.1",
+          "System.Runtime.InteropServices": "4.1.0",
+          "System.Security.Claims": "4.0.1",
+          "System.Security.Cryptography.Algorithms": "4.2.0",
+          "System.Security.Cryptography.Encoding": "4.0.0",
+          "System.Security.Cryptography.OpenSsl": "4.0.0",
+          "System.Security.Cryptography.Primitives": "4.0.0",
+          "System.Security.Cryptography.X509Certificates": "4.1.0",
+          "System.Security.Principal": "4.0.1",
+          "System.Text.Encoding": "4.0.11",
+          "System.Threading": "4.0.11",
+          "System.Threading.Tasks": "4.0.11",
+          "System.Threading.ThreadPool": "4.0.10",
+          "runtime.native.System": "4.0.0",
+          "runtime.native.System.Net.Security": "4.0.1",
+          "runtime.native.System.Security.Cryptography": "4.0.0"
+        },
+        "compile": {
+          "ref/netstandard1.3/_._": {}
+        },
+        "runtimeTargets": {
+          "runtimes/unix/lib/netstandard1.6/System.Net.Security.dll": {
+            "assetType": "runtime",
+            "rid": "unix"
+          },
+          "runtimes/win/lib/netstandard1.3/System.Net.Security.dll": {
+            "assetType": "runtime",
+            "rid": "win"
+          }
         }
       },
       "System.Net.Sockets/4.1.0": {
@@ -8379,6 +9393,19 @@
           "lib/netstandard1.3/System.Threading.Thread.dll": {}
         }
       },
+      "System.Threading.ThreadPool/4.0.10": {
+        "type": "package",
+        "dependencies": {
+          "System.Runtime": "4.1.0",
+          "System.Runtime.Handles": "4.0.1"
+        },
+        "compile": {
+          "ref/netstandard1.3/_._": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/System.Threading.ThreadPool.dll": {}
+        }
+      },
       "System.Threading.Timer/4.0.1": {
         "type": "package",
         "dependencies": {
@@ -9070,6 +10097,45 @@
         "lib/netstandard1.3/Microsoft.EntityFrameworkCore.xml"
       ]
     },
+    "Microsoft.EntityFrameworkCore.InMemory/1.0.0": {
+      "sha512": "0HGcrblJnPlW9EHLFKZ4uSFXOVbvtIymPNsbD+PoAm2B12oe8ImTgWHAgeYbCDLWHyETyN3D1sn8sqkqbo+uog==",
+      "type": "package",
+      "path": "Microsoft.EntityFrameworkCore.InMemory/1.0.0",
+      "files": [
+        "Microsoft.EntityFrameworkCore.InMemory.1.0.0.nupkg.sha512",
+        "Microsoft.EntityFrameworkCore.InMemory.nuspec",
+        "lib/net451/Microsoft.EntityFrameworkCore.InMemory.dll",
+        "lib/net451/Microsoft.EntityFrameworkCore.InMemory.xml",
+        "lib/netstandard1.3/Microsoft.EntityFrameworkCore.InMemory.dll",
+        "lib/netstandard1.3/Microsoft.EntityFrameworkCore.InMemory.xml"
+      ]
+    },
+    "Microsoft.EntityFrameworkCore.Relational/1.0.0": {
+      "sha512": "LGBab+7o0eq4C3YtvkAxK8W7Ia57eO0Ue0viQgt0STptQ2bUpLzV7q5LfbNl475rt6yTWa/vDQlYVaI64fwqdw==",
+      "type": "package",
+      "path": "Microsoft.EntityFrameworkCore.Relational/1.0.0",
+      "files": [
+        "Microsoft.EntityFrameworkCore.Relational.1.0.0.nupkg.sha512",
+        "Microsoft.EntityFrameworkCore.Relational.nuspec",
+        "lib/net451/Microsoft.EntityFrameworkCore.Relational.dll",
+        "lib/net451/Microsoft.EntityFrameworkCore.Relational.xml",
+        "lib/netstandard1.3/Microsoft.EntityFrameworkCore.Relational.dll",
+        "lib/netstandard1.3/Microsoft.EntityFrameworkCore.Relational.xml"
+      ]
+    },
+    "Microsoft.EntityFrameworkCore.SqlServer/1.0.0": {
+      "sha512": "zLPrmmZ2b4jM3Hezf4dP2oIVREeXlXfcyNDX4mBZ6xcW+QauxyDpzrB86mnEF1quBdkpbZhv7T+ZbS9XS6Hqdg==",
+      "type": "package",
+      "path": "Microsoft.EntityFrameworkCore.SqlServer/1.0.0",
+      "files": [
+        "Microsoft.EntityFrameworkCore.SqlServer.1.0.0.nupkg.sha512",
+        "Microsoft.EntityFrameworkCore.SqlServer.nuspec",
+        "lib/net451/Microsoft.EntityFrameworkCore.SqlServer.dll",
+        "lib/net451/Microsoft.EntityFrameworkCore.SqlServer.xml",
+        "lib/netstandard1.3/Microsoft.EntityFrameworkCore.SqlServer.dll",
+        "lib/netstandard1.3/Microsoft.EntityFrameworkCore.SqlServer.xml"
+      ]
+    },
     "Microsoft.Extensions.Caching.Abstractions/1.0.0": {
       "sha512": "IxlFDVOchL6tdR05bk7EiJvMtvZrVkZXBhkbXqc3GxOHOrHFGcN+92WoWFPeBpdpy8ot/Px5ZdXzt7k+2n1Bdg==",
       "type": "package",
@@ -9094,6 +10160,17 @@
         "lib/netstandard1.3/Microsoft.Extensions.Caching.Memory.xml"
       ]
     },
+    "Microsoft.Extensions.Configuration/1.0.0": {
+      "sha512": "hR4yYebruRp6qyFnV3RW4qrnEb0J1LnMmQbj50AUA423V8dMs4E3YAohsyRyGBFnpbJ+KKzieSG/n2A6T0klZQ==",
+      "type": "package",
+      "path": "Microsoft.Extensions.Configuration/1.0.0",
+      "files": [
+        "Microsoft.Extensions.Configuration.1.0.0.nupkg.sha512",
+        "Microsoft.Extensions.Configuration.nuspec",
+        "lib/netstandard1.1/Microsoft.Extensions.Configuration.dll",
+        "lib/netstandard1.1/Microsoft.Extensions.Configuration.xml"
+      ]
+    },
     "Microsoft.Extensions.Configuration.Abstractions/1.0.0": {
       "sha512": "nJ+Et/rnDMDmGhxvFAKdN3va7y+YDPICv1nUEP8I4IKgOkWwr/dCZHMqxVhJFrkbW9ux8Kd7erC4mvxfZh0WnA==",
       "type": "package",
@@ -9103,6 +10180,56 @@
         "Microsoft.Extensions.Configuration.Abstractions.nuspec",
         "lib/netstandard1.0/Microsoft.Extensions.Configuration.Abstractions.dll",
         "lib/netstandard1.0/Microsoft.Extensions.Configuration.Abstractions.xml"
+      ]
+    },
+    "Microsoft.Extensions.Configuration.Binder/1.0.0": {
+      "sha512": "kK8QuBcPQtmKJCkC9enc1uMRFa++mPTuVNm2K5jDVXcAYKRBcFSbdEBvIe1JIgA6dEsAQeqjfHfKSaUJ8f5NFQ==",
+      "type": "package",
+      "path": "Microsoft.Extensions.Configuration.Binder/1.0.0",
+      "files": [
+        "Microsoft.Extensions.Configuration.Binder.1.0.0.nupkg.sha512",
+        "Microsoft.Extensions.Configuration.Binder.nuspec",
+        "lib/netstandard1.1/Microsoft.Extensions.Configuration.Binder.dll",
+        "lib/netstandard1.1/Microsoft.Extensions.Configuration.Binder.xml"
+      ]
+    },
+    "Microsoft.Extensions.Configuration.EnvironmentVariables/1.0.0": {
+      "sha512": "A0yqS98VtPNlFkFI7YBlwkAekUHE/9mMeNc+K4RmgTjCrskuk6pX3LGhDU7aD5CPYc9Px7M2To/2u4xDSnRikg==",
+      "type": "package",
+      "path": "Microsoft.Extensions.Configuration.EnvironmentVariables/1.0.0",
+      "files": [
+        "Microsoft.Extensions.Configuration.EnvironmentVariables.1.0.0.nupkg.sha512",
+        "Microsoft.Extensions.Configuration.EnvironmentVariables.nuspec",
+        "lib/net451/Microsoft.Extensions.Configuration.EnvironmentVariables.dll",
+        "lib/net451/Microsoft.Extensions.Configuration.EnvironmentVariables.xml",
+        "lib/netstandard1.3/Microsoft.Extensions.Configuration.EnvironmentVariables.dll",
+        "lib/netstandard1.3/Microsoft.Extensions.Configuration.EnvironmentVariables.xml"
+      ]
+    },
+    "Microsoft.Extensions.Configuration.FileExtensions/1.0.0": {
+      "sha512": "MO7XtmLiqnpgVTX34uzFPvIS7jPmBUGLN0MP5MsYu6CqYTIs90ULjtrV5TegH5mTqKTXWjZRGXL26R6apTyc4w==",
+      "type": "package",
+      "path": "Microsoft.Extensions.Configuration.FileExtensions/1.0.0",
+      "files": [
+        "Microsoft.Extensions.Configuration.FileExtensions.1.0.0.nupkg.sha512",
+        "Microsoft.Extensions.Configuration.FileExtensions.nuspec",
+        "lib/net451/Microsoft.Extensions.Configuration.FileExtensions.dll",
+        "lib/net451/Microsoft.Extensions.Configuration.FileExtensions.xml",
+        "lib/netstandard1.3/Microsoft.Extensions.Configuration.FileExtensions.dll",
+        "lib/netstandard1.3/Microsoft.Extensions.Configuration.FileExtensions.xml"
+      ]
+    },
+    "Microsoft.Extensions.Configuration.Json/1.0.0": {
+      "sha512": "KRyEOe5/Xi3qyDMdEVh++e2pQRsI6C3wzINVExOcu9lOsFmXK/k4qOf244fyo59rnn6s5xKnIW3WbhxWS1hu2w==",
+      "type": "package",
+      "path": "Microsoft.Extensions.Configuration.Json/1.0.0",
+      "files": [
+        "Microsoft.Extensions.Configuration.Json.1.0.0.nupkg.sha512",
+        "Microsoft.Extensions.Configuration.Json.nuspec",
+        "lib/net451/Microsoft.Extensions.Configuration.Json.dll",
+        "lib/net451/Microsoft.Extensions.Configuration.Json.xml",
+        "lib/netstandard1.3/Microsoft.Extensions.Configuration.Json.dll",
+        "lib/netstandard1.3/Microsoft.Extensions.Configuration.Json.xml"
       ]
     },
     "Microsoft.Extensions.DependencyInjection/1.0.0": {
@@ -9243,6 +10370,19 @@
         "lib/netstandard1.1/Microsoft.Extensions.Logging.Abstractions.xml"
       ]
     },
+    "Microsoft.Extensions.Logging.Console/1.0.0": {
+      "sha512": "GN4gFFONP12KbFEG9rNFpXuz6D2Tybcm8+c1wilaQ1eSl9zVX0gVRrKw/YRwxdwbM3eK7nWfRRqJaQPzOjtLnA==",
+      "type": "package",
+      "path": "Microsoft.Extensions.Logging.Console/1.0.0",
+      "files": [
+        "Microsoft.Extensions.Logging.Console.1.0.0.nupkg.sha512",
+        "Microsoft.Extensions.Logging.Console.nuspec",
+        "lib/net451/Microsoft.Extensions.Logging.Console.dll",
+        "lib/net451/Microsoft.Extensions.Logging.Console.xml",
+        "lib/netstandard1.3/Microsoft.Extensions.Logging.Console.dll",
+        "lib/netstandard1.3/Microsoft.Extensions.Logging.Console.xml"
+      ]
+    },
     "Microsoft.Extensions.ObjectPool/1.0.0": {
       "sha512": "BTXoWSTrv/saLlNSg8l41YOoSKeUUanQLykUqRTtiUJz2xxQOCgm4ckPzrdmSK6w0mdjR2h7IrUDGdBF78Z7yg==",
       "type": "package",
@@ -9265,6 +10405,17 @@
         "Microsoft.Extensions.Options.nuspec",
         "lib/netstandard1.0/Microsoft.Extensions.Options.dll",
         "lib/netstandard1.0/Microsoft.Extensions.Options.xml"
+      ]
+    },
+    "Microsoft.Extensions.Options.ConfigurationExtensions/1.0.0": {
+      "sha512": "ov+cv1w81/lVrjqorjSpUvTzJhRVFu2GSRyRQYcGfGWPwrCz6473YoiqK/XNbeBmmF9VVyGPHVMubAH+Atsr3g==",
+      "type": "package",
+      "path": "Microsoft.Extensions.Options.ConfigurationExtensions/1.0.0",
+      "files": [
+        "Microsoft.Extensions.Options.ConfigurationExtensions.1.0.0.nupkg.sha512",
+        "Microsoft.Extensions.Options.ConfigurationExtensions.nuspec",
+        "lib/netstandard1.1/Microsoft.Extensions.Options.ConfigurationExtensions.dll",
+        "lib/netstandard1.1/Microsoft.Extensions.Options.ConfigurationExtensions.xml"
       ]
     },
     "Microsoft.Extensions.PlatformAbstractions/1.0.0": {
@@ -9469,6 +10620,17 @@
         "runtime.native.System.nuspec"
       ]
     },
+    "runtime.native.System.Data.SqlClient.sni/4.0.0": {
+      "sha512": "DcMVtYwugo1LOc9MVchInxlLNoFe/+21MsEQU9yIZX561chzxDlFDWowWF+Kc262PyD3eLkDab1JyJrs73Qtkg==",
+      "type": "package",
+      "path": "runtime.native.System.Data.SqlClient.sni/4.0.0",
+      "files": [
+        "ThirdPartyNotices.txt",
+        "dotnet_library_license.txt",
+        "runtime.native.System.Data.SqlClient.sni.4.0.0.nupkg.sha512",
+        "runtime.native.System.Data.SqlClient.sni.nuspec"
+      ]
+    },
     "runtime.native.System.IO.Compression/4.1.0": {
       "sha512": "Ob7nvnJBox1aaB222zSVZSkf4WrebPG4qFscfK7vmD7P7NxoSxACQLtO7ytWpqXDn2wcd/+45+EAZ7xjaPip8A==",
       "type": "package",
@@ -9493,6 +10655,18 @@
         "runtime.native.System.Net.Http.nuspec"
       ]
     },
+    "runtime.native.System.Net.Security/4.0.1": {
+      "sha512": "lvPEuYXBu2Mdqwmy72GJHSzFXxQygjJtkeaCiB1C3cxtQrN/gbIEpXkBFsB9TcgpUmm1PX2uD0hmOwHmRvgLmA==",
+      "type": "package",
+      "path": "runtime.native.System.Net.Security/4.0.1",
+      "files": [
+        "ThirdPartyNotices.txt",
+        "dotnet_library_license.txt",
+        "lib/netstandard1.0/_._",
+        "runtime.native.System.Net.Security.4.0.1.nupkg.sha512",
+        "runtime.native.System.Net.Security.nuspec"
+      ]
+    },
     "runtime.native.System.Security.Cryptography/4.0.0": {
       "sha512": "2CQK0jmO6Eu7ZeMgD+LOFbNJSXHFVQbCJJkEyEwowh1SCgYnrn9W9RykMfpeeVGw7h4IBvYikzpGUlmZTUafJw==",
       "type": "package",
@@ -9503,6 +10677,30 @@
         "lib/netstandard1.0/_._",
         "runtime.native.System.Security.Cryptography.4.0.0.nupkg.sha512",
         "runtime.native.System.Security.Cryptography.nuspec"
+      ]
+    },
+    "runtime.win7-x64.runtime.native.System.Data.SqlClient.sni/4.0.1": {
+      "sha512": "My20HZqJbDS4rWmdOcJ3TPf9iX6M/sTF2nBSUHBvfWp1iNip3eMS+K65oQgsLRxX6h21ic3YED06c2ye2sL7FQ==",
+      "type": "package",
+      "path": "runtime.win7-x64.runtime.native.System.Data.SqlClient.sni/4.0.1",
+      "files": [
+        "ThirdPartyNotices.txt",
+        "dotnet_library_license.txt",
+        "runtime.win7-x64.runtime.native.System.Data.SqlClient.sni.4.0.1.nupkg.sha512",
+        "runtime.win7-x64.runtime.native.System.Data.SqlClient.sni.nuspec",
+        "runtimes/win7-x64/native/sni.dll"
+      ]
+    },
+    "runtime.win7-x86.runtime.native.System.Data.SqlClient.sni/4.0.1": {
+      "sha512": "ykiYCf/0hIc0xm+g6bVX8nw9St5Ool+r4US+B+56Lv/GFnDG5G9BK4n7WkrwEpuWV3XjMn38oHgHOnNMzBVNKA==",
+      "type": "package",
+      "path": "runtime.win7-x86.runtime.native.System.Data.SqlClient.sni/4.0.1",
+      "files": [
+        "ThirdPartyNotices.txt",
+        "dotnet_library_license.txt",
+        "runtime.win7-x86.runtime.native.System.Data.SqlClient.sni.4.0.1.nupkg.sha512",
+        "runtime.win7-x86.runtime.native.System.Data.SqlClient.sni.nuspec",
+        "runtimes/win7-x86/native/sni.dll"
       ]
     },
     "System.AppContext/4.1.0": {
@@ -10048,6 +11246,108 @@
         "ref/xamarinmac20/_._",
         "ref/xamarintvos10/_._",
         "ref/xamarinwatchos10/_._"
+      ]
+    },
+    "System.Data.Common/4.1.0": {
+      "sha512": "epU8jeTe7aE7RqGHq9rZ8b0Q4Ah7DgubzHQblgZMSqgW1saW868WmooSyC5ywf8upLBkcVLDu93W9GPWUYsU2Q==",
+      "type": "package",
+      "path": "System.Data.Common/4.1.0",
+      "files": [
+        "System.Data.Common.4.1.0.nupkg.sha512",
+        "System.Data.Common.nuspec",
+        "ThirdPartyNotices.txt",
+        "dotnet_library_license.txt",
+        "lib/MonoAndroid10/_._",
+        "lib/MonoTouch10/_._",
+        "lib/net451/System.Data.Common.dll",
+        "lib/netstandard1.2/System.Data.Common.dll",
+        "lib/portable-net451+win8+wp8+wpa81/System.Data.Common.dll",
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "lib/xamarintvos10/_._",
+        "lib/xamarinwatchos10/_._",
+        "ref/MonoAndroid10/_._",
+        "ref/MonoTouch10/_._",
+        "ref/net451/System.Data.Common.dll",
+        "ref/netstandard1.2/System.Data.Common.dll",
+        "ref/netstandard1.2/System.Data.Common.xml",
+        "ref/netstandard1.2/de/System.Data.Common.xml",
+        "ref/netstandard1.2/es/System.Data.Common.xml",
+        "ref/netstandard1.2/fr/System.Data.Common.xml",
+        "ref/netstandard1.2/it/System.Data.Common.xml",
+        "ref/netstandard1.2/ja/System.Data.Common.xml",
+        "ref/netstandard1.2/ko/System.Data.Common.xml",
+        "ref/netstandard1.2/ru/System.Data.Common.xml",
+        "ref/netstandard1.2/zh-hans/System.Data.Common.xml",
+        "ref/netstandard1.2/zh-hant/System.Data.Common.xml",
+        "ref/portable-net451+win8+wp8+wpa81/System.Data.Common.dll",
+        "ref/portable-net451+win8+wp8+wpa81/System.Data.Common.xml",
+        "ref/portable-net451+win8+wp8+wpa81/de/System.Data.Common.xml",
+        "ref/portable-net451+win8+wp8+wpa81/es/System.Data.Common.xml",
+        "ref/portable-net451+win8+wp8+wpa81/fr/System.Data.Common.xml",
+        "ref/portable-net451+win8+wp8+wpa81/it/System.Data.Common.xml",
+        "ref/portable-net451+win8+wp8+wpa81/ja/System.Data.Common.xml",
+        "ref/portable-net451+win8+wp8+wpa81/ko/System.Data.Common.xml",
+        "ref/portable-net451+win8+wp8+wpa81/ru/System.Data.Common.xml",
+        "ref/portable-net451+win8+wp8+wpa81/zh-hans/System.Data.Common.xml",
+        "ref/portable-net451+win8+wp8+wpa81/zh-hant/System.Data.Common.xml",
+        "ref/xamarinios10/_._",
+        "ref/xamarinmac20/_._",
+        "ref/xamarintvos10/_._",
+        "ref/xamarinwatchos10/_._"
+      ]
+    },
+    "System.Data.SqlClient/4.1.0": {
+      "sha512": "yqMZgzzKHdG84QmA/PPZUORaoisfvztvFqyPs7dPafJhNxlS7STf9OMCFrP/tITQCqImkm1+X4d2oiWOT2oTKg==",
+      "type": "package",
+      "path": "System.Data.SqlClient/4.1.0",
+      "files": [
+        "System.Data.SqlClient.4.1.0.nupkg.sha512",
+        "System.Data.SqlClient.nuspec",
+        "ThirdPartyNotices.txt",
+        "dotnet_library_license.txt",
+        "lib/MonoAndroid10/_._",
+        "lib/MonoTouch10/_._",
+        "lib/net451/System.Data.SqlClient.dll",
+        "lib/net46/System.Data.SqlClient.dll",
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "lib/xamarintvos10/_._",
+        "lib/xamarinwatchos10/_._",
+        "ref/MonoAndroid10/_._",
+        "ref/MonoTouch10/_._",
+        "ref/net451/System.Data.SqlClient.dll",
+        "ref/net46/System.Data.SqlClient.dll",
+        "ref/netstandard1.2/System.Data.SqlClient.dll",
+        "ref/netstandard1.2/System.Data.SqlClient.xml",
+        "ref/netstandard1.2/de/System.Data.SqlClient.xml",
+        "ref/netstandard1.2/es/System.Data.SqlClient.xml",
+        "ref/netstandard1.2/fr/System.Data.SqlClient.xml",
+        "ref/netstandard1.2/it/System.Data.SqlClient.xml",
+        "ref/netstandard1.2/ja/System.Data.SqlClient.xml",
+        "ref/netstandard1.2/ko/System.Data.SqlClient.xml",
+        "ref/netstandard1.2/ru/System.Data.SqlClient.xml",
+        "ref/netstandard1.2/zh-hans/System.Data.SqlClient.xml",
+        "ref/netstandard1.2/zh-hant/System.Data.SqlClient.xml",
+        "ref/netstandard1.3/System.Data.SqlClient.dll",
+        "ref/netstandard1.3/System.Data.SqlClient.xml",
+        "ref/netstandard1.3/de/System.Data.SqlClient.xml",
+        "ref/netstandard1.3/es/System.Data.SqlClient.xml",
+        "ref/netstandard1.3/fr/System.Data.SqlClient.xml",
+        "ref/netstandard1.3/it/System.Data.SqlClient.xml",
+        "ref/netstandard1.3/ja/System.Data.SqlClient.xml",
+        "ref/netstandard1.3/ko/System.Data.SqlClient.xml",
+        "ref/netstandard1.3/ru/System.Data.SqlClient.xml",
+        "ref/netstandard1.3/zh-hans/System.Data.SqlClient.xml",
+        "ref/netstandard1.3/zh-hant/System.Data.SqlClient.xml",
+        "ref/xamarinios10/_._",
+        "ref/xamarinmac20/_._",
+        "ref/xamarintvos10/_._",
+        "ref/xamarinwatchos10/_._",
+        "runtimes/unix/lib/netstandard1.3/System.Data.SqlClient.dll",
+        "runtimes/win/lib/net451/System.Data.SqlClient.dll",
+        "runtimes/win/lib/net46/System.Data.SqlClient.dll",
+        "runtimes/win/lib/netstandard1.3/System.Data.SqlClient.dll"
       ]
     },
     "System.Diagnostics.Contracts/4.0.1": {
@@ -10936,6 +12236,34 @@
         "runtimes/win7/lib/netcore50/_._"
       ]
     },
+    "System.IO.Pipes/4.0.0": {
+      "sha512": "L9QVhk8hIEix5KNA0kW58Ha+Y1dNGqqqIhAaJkhcGCWeQzUmN0njzI7SG/XAazpMecboOdFFlH3pH/qbwXLJAg==",
+      "type": "package",
+      "path": "System.IO.Pipes/4.0.0",
+      "files": [
+        "System.IO.Pipes.4.0.0.nupkg.sha512",
+        "System.IO.Pipes.nuspec",
+        "ThirdPartyNotices.txt",
+        "dotnet_library_license.txt",
+        "lib/net46/System.IO.Pipes.dll",
+        "ref/net46/System.IO.Pipes.dll",
+        "ref/netstandard1.3/System.IO.Pipes.dll",
+        "ref/netstandard1.3/System.IO.Pipes.xml",
+        "ref/netstandard1.3/de/System.IO.Pipes.xml",
+        "ref/netstandard1.3/es/System.IO.Pipes.xml",
+        "ref/netstandard1.3/fr/System.IO.Pipes.xml",
+        "ref/netstandard1.3/it/System.IO.Pipes.xml",
+        "ref/netstandard1.3/ja/System.IO.Pipes.xml",
+        "ref/netstandard1.3/ko/System.IO.Pipes.xml",
+        "ref/netstandard1.3/ru/System.IO.Pipes.xml",
+        "ref/netstandard1.3/zh-hans/System.IO.Pipes.xml",
+        "ref/netstandard1.3/zh-hant/System.IO.Pipes.xml",
+        "runtimes/unix/lib/netstandard1.3/System.IO.Pipes.dll",
+        "runtimes/win/lib/net46/System.IO.Pipes.dll",
+        "runtimes/win/lib/netstandard1.3/System.IO.Pipes.dll",
+        "runtimes/win7/lib/netcore50/_._"
+      ]
+    },
     "System.Linq/4.1.0": {
       "sha512": "bQ0iYFOQI0nuTnt+NQADns6ucV4DUvMdwN6CbkB1yj8i7arTGiTN5eok1kQwdnnNWSDZfIUySQY+J3d5KjWn0g==",
       "type": "package",
@@ -11225,6 +12553,46 @@
         "runtimes/win/lib/netstandard1.3/System.Net.Http.dll"
       ]
     },
+    "System.Net.NameResolution/4.0.0": {
+      "sha512": "aaDhqevFL/V82qGncQy9POuPhw3nrd2szREesZIymfhf6sqEX/ZiN8h1vze7RgXrtBlwNdGxGeyVzff2fRG3wA==",
+      "type": "package",
+      "path": "System.Net.NameResolution/4.0.0",
+      "files": [
+        "System.Net.NameResolution.4.0.0.nupkg.sha512",
+        "System.Net.NameResolution.nuspec",
+        "ThirdPartyNotices.txt",
+        "dotnet_library_license.txt",
+        "lib/MonoAndroid10/_._",
+        "lib/MonoTouch10/_._",
+        "lib/net46/System.Net.NameResolution.dll",
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "lib/xamarintvos10/_._",
+        "lib/xamarinwatchos10/_._",
+        "ref/MonoAndroid10/_._",
+        "ref/MonoTouch10/_._",
+        "ref/net46/System.Net.NameResolution.dll",
+        "ref/netstandard1.3/System.Net.NameResolution.dll",
+        "ref/netstandard1.3/System.Net.NameResolution.xml",
+        "ref/netstandard1.3/de/System.Net.NameResolution.xml",
+        "ref/netstandard1.3/es/System.Net.NameResolution.xml",
+        "ref/netstandard1.3/fr/System.Net.NameResolution.xml",
+        "ref/netstandard1.3/it/System.Net.NameResolution.xml",
+        "ref/netstandard1.3/ja/System.Net.NameResolution.xml",
+        "ref/netstandard1.3/ko/System.Net.NameResolution.xml",
+        "ref/netstandard1.3/ru/System.Net.NameResolution.xml",
+        "ref/netstandard1.3/zh-hans/System.Net.NameResolution.xml",
+        "ref/netstandard1.3/zh-hant/System.Net.NameResolution.xml",
+        "ref/xamarinios10/_._",
+        "ref/xamarinmac20/_._",
+        "ref/xamarintvos10/_._",
+        "ref/xamarinwatchos10/_._",
+        "runtimes/unix/lib/netstandard1.3/System.Net.NameResolution.dll",
+        "runtimes/win/lib/net46/System.Net.NameResolution.dll",
+        "runtimes/win/lib/netcore50/System.Net.NameResolution.dll",
+        "runtimes/win/lib/netstandard1.3/System.Net.NameResolution.dll"
+      ]
+    },
     "System.Net.Primitives/4.0.11": {
       "sha512": "hVvfl4405DRjA2408luZekbPhplJK03j2Y2lSfMlny7GHXlkByw1iLnc9mgKW0GdQn73vvMcWrWewAhylXA4Nw==",
       "type": "package",
@@ -11300,6 +12668,46 @@
         "ref/xamarinmac20/_._",
         "ref/xamarintvos10/_._",
         "ref/xamarinwatchos10/_._"
+      ]
+    },
+    "System.Net.Security/4.0.0": {
+      "sha512": "fE3ej6VtXABBky9dxIcXWtIjgZWKKPjnzX6NhHK5hionRov3kMECTWyEO6EukuI6fo+H41y3JOwHBw3s/M18Cw==",
+      "type": "package",
+      "path": "System.Net.Security/4.0.0",
+      "files": [
+        "System.Net.Security.4.0.0.nupkg.sha512",
+        "System.Net.Security.nuspec",
+        "ThirdPartyNotices.txt",
+        "dotnet_library_license.txt",
+        "lib/MonoAndroid10/_._",
+        "lib/MonoTouch10/_._",
+        "lib/net46/System.Net.Security.dll",
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "lib/xamarintvos10/_._",
+        "lib/xamarinwatchos10/_._",
+        "ref/MonoAndroid10/_._",
+        "ref/MonoTouch10/_._",
+        "ref/net46/System.Net.Security.dll",
+        "ref/netstandard1.3/System.Net.Security.dll",
+        "ref/netstandard1.3/System.Net.Security.xml",
+        "ref/netstandard1.3/de/System.Net.Security.xml",
+        "ref/netstandard1.3/es/System.Net.Security.xml",
+        "ref/netstandard1.3/fr/System.Net.Security.xml",
+        "ref/netstandard1.3/it/System.Net.Security.xml",
+        "ref/netstandard1.3/ja/System.Net.Security.xml",
+        "ref/netstandard1.3/ko/System.Net.Security.xml",
+        "ref/netstandard1.3/ru/System.Net.Security.xml",
+        "ref/netstandard1.3/zh-hans/System.Net.Security.xml",
+        "ref/netstandard1.3/zh-hant/System.Net.Security.xml",
+        "ref/xamarinios10/_._",
+        "ref/xamarinmac20/_._",
+        "ref/xamarintvos10/_._",
+        "ref/xamarinwatchos10/_._",
+        "runtimes/unix/lib/netstandard1.6/System.Net.Security.dll",
+        "runtimes/win/lib/net46/System.Net.Security.dll",
+        "runtimes/win/lib/netstandard1.3/System.Net.Security.dll",
+        "runtimes/win7/lib/netcore50/_._"
       ]
     },
     "System.Net.Sockets/4.1.0": {
@@ -13231,6 +14639,44 @@
         "ref/xamarinwatchos10/_._"
       ]
     },
+    "System.Threading.ThreadPool/4.0.10": {
+      "sha512": "FkgEOV+J6djS5j54lt/D3gBJLGfU8Mb9ocSKfrowGpdF/CnXvjPnYXyrOEsrcooLPsEcNLosAVwpNY42n9mtAw==",
+      "type": "package",
+      "path": "System.Threading.ThreadPool/4.0.10",
+      "files": [
+        "System.Threading.ThreadPool.4.0.10.nupkg.sha512",
+        "System.Threading.ThreadPool.nuspec",
+        "ThirdPartyNotices.txt",
+        "dotnet_library_license.txt",
+        "lib/MonoAndroid10/_._",
+        "lib/MonoTouch10/_._",
+        "lib/net46/System.Threading.ThreadPool.dll",
+        "lib/netcore50/_._",
+        "lib/netstandard1.3/System.Threading.ThreadPool.dll",
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "lib/xamarintvos10/_._",
+        "lib/xamarinwatchos10/_._",
+        "ref/MonoAndroid10/_._",
+        "ref/MonoTouch10/_._",
+        "ref/net46/System.Threading.ThreadPool.dll",
+        "ref/netstandard1.3/System.Threading.ThreadPool.dll",
+        "ref/netstandard1.3/System.Threading.ThreadPool.xml",
+        "ref/netstandard1.3/de/System.Threading.ThreadPool.xml",
+        "ref/netstandard1.3/es/System.Threading.ThreadPool.xml",
+        "ref/netstandard1.3/fr/System.Threading.ThreadPool.xml",
+        "ref/netstandard1.3/it/System.Threading.ThreadPool.xml",
+        "ref/netstandard1.3/ja/System.Threading.ThreadPool.xml",
+        "ref/netstandard1.3/ko/System.Threading.ThreadPool.xml",
+        "ref/netstandard1.3/ru/System.Threading.ThreadPool.xml",
+        "ref/netstandard1.3/zh-hans/System.Threading.ThreadPool.xml",
+        "ref/netstandard1.3/zh-hant/System.Threading.ThreadPool.xml",
+        "ref/xamarinios10/_._",
+        "ref/xamarinmac20/_._",
+        "ref/xamarintvos10/_._",
+        "ref/xamarinwatchos10/_._"
+      ]
+    },
     "System.Threading.Timer/4.0.1": {
       "sha512": "saGfUV8uqVW6LeURiqxcGhZ24PzuRNaUBtbhVeuUAvky1naH395A/1nY0P2bWvrw/BreRtIB/EzTDkGBpqCwEw==",
       "type": "package",
@@ -13539,7 +14985,15 @@
   },
   "projectFileDependencyGroups": {
     "": [
-      "GladLive.Module.System.Library >= 1.0.0-*"
+      "GladLive.Module.System.Library >= 1.0.0-*",
+      "Microsoft.EntityFrameworkCore.InMemory >= 1.0.0",
+      "Microsoft.EntityFrameworkCore.SqlServer >= 1.0.0",
+      "Microsoft.Extensions.Configuration >= 1.0.0",
+      "Microsoft.Extensions.Configuration.EnvironmentVariables >= 1.0.0",
+      "Microsoft.Extensions.Configuration.FileExtensions >= 1.0.0",
+      "Microsoft.Extensions.Configuration.Json >= 1.0.0",
+      "Microsoft.Extensions.Logging.Console >= 1.0.0",
+      "Microsoft.Extensions.Options.ConfigurationExtensions >= 1.0.0"
     ],
     ".NETFramework,Version=v4.5.1": [],
     ".NETFramework,Version=v4.5.2": [],

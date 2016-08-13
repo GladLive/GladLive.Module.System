@@ -95,5 +95,19 @@ namespace GladLive.Module.System.Server
 					throw new InvalidOperationException($"Unable to located module DLL {path}. Loaded a null assembly.");
 			}
 		}
+
+		public IEnumerable<Type> GetTypes<TTargetType>()
+			where TTargetType : class
+		{
+			return this.loadedModuleAssembly.GetTypes()
+				.Where(t => typeof(TTargetType).IsAssignableFrom(t)); //find all types that are children of TTargetType
+		}
+
+		public Type GetType<TTargetType>()
+			where TTargetType : class
+		{
+			return this.loadedModuleAssembly.GetTypes()
+				.First(t => typeof(TTargetType).IsAssignableFrom(t)); //find the TTargetType child.
+		}
 	}
 }

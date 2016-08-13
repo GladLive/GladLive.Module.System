@@ -11,7 +11,7 @@ namespace GladLive.Module.System.Library
 	/// Module for registering services in <see cref="IServiceCollection"/> for GladLive.
 	/// Inherit this class to setup DI services for the ASP server.
 	/// </summary>
-	public class ServiceRegistrationModule
+	public abstract class ServiceRegistrationModule : IRegisterModule
 	{
 		/// <summary>
 		/// Provided service collection.
@@ -36,5 +36,7 @@ namespace GladLive.Module.System.Library
 			DbOptions = options;
 			serviceCollection = services;
 		}
+
+		public abstract void Register();
 	}
 }

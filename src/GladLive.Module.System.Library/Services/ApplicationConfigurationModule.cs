@@ -14,7 +14,7 @@ namespace GladLive.Module.System.Library
 	/// Inherit this class to configure <see cref="IApplicationBuilder"/> for the ASP server.
 	/// Inheritors must NOT modify the constructor.
 	/// </summary>
-	public class ApplicationConfigurationModule
+	public abstract class ApplicationConfigurationModule : IRegisterModule
 	{
 		/// <summary>
 		/// The application builder configuration service.
@@ -42,5 +42,7 @@ namespace GladLive.Module.System.Library
 			loggerFactoryService = loggerFactory;
 			applicationBuilder = app;
 		}
+
+		public abstract void Register();
 	}
 }
