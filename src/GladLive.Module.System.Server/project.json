@@ -1,6 +1,5 @@
 {
   "version": "1.0.0-*",
-
     "dependencies": {
         "GladLive.Module.System.Library": "1.0.0-*",
         "Microsoft.EntityFrameworkCore.InMemory": "1.0.0",
@@ -12,34 +11,32 @@
         "Microsoft.Extensions.Logging.Console": "1.0.0",
         "Microsoft.Extensions.Options.ConfigurationExtensions": "1.0.0"
     },
-
-	"frameworks": {
-		"netstandard1.6": {
-			"imports": "dnxcore50",
-			"dependencies": {
-				"NETStandard.Library": "1.6.0"
-			}
-		},
-
-		"net451": {
-			"dependencies": {
-			}
-		},
-
-		"net452": {
-			"dependencies": {
-			}
-		},
-
-		"net46": {
-			"dependencies": {
-			}
-		},
-
-		"net461": {
-			"dependencies": {
-			}
-		}
-	}
+    "frameworks": {
+        "netstandard1.6": {
+            "imports": "dnxcore50",
+            "dependencies": {
+                "NETStandard.Library": "1.6.0"
+            }
+        },
+        "net451": {
+            "dependencies": {
+            }
+        },
+        "net452": {
+            "dependencies": {
+            }
+        },
+        "net46": {
+            "dependencies": {
+            }
+        },
+        "net461": {
+            "dependencies": {
+            }
+        }
+    },
+    "buildOptions": {
+        "xmlDoc": true
+    }
 }
 
