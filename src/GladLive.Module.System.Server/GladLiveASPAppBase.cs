@@ -47,8 +47,9 @@ namespace GladLive.Module.System.Server
 			services.AddOptions();
 
 			//configures the JSON DTO for the module options and database options
-			services.Configure<ModuleSystemOptions>(Configuration);
-			services.Configure<DatabaseConfigOptions>(Configuration);
+			services.Configure<ModuleSystemOptions>(Configuration.GetSection(nameof(ModuleSystemOptions)));
+
+			services.Configure<DatabaseConfigOptions>(Configuration.GetSection(nameof(DatabaseConfigOptions)));
 
 			//temporarily generate a service provider
 			IServiceProvider provider = services.BuildServiceProvider();
@@ -56,8 +57,14 @@ namespace GladLive.Module.System.Server
 			IOptions<ModuleSystemOptions> moduleOptions = provider.GetService<IOptions<ModuleSystemOptions>>();
 			IOptions<DatabaseConfigOptions> databaseOptions = provider.GetService<IOptions<DatabaseConfigOptions>>();
 
+			if (moduleOptions == null)
+				throw new InvalidOperationException($"Couldn't create {nameof(ModuleSystemOptions)} from modules.json.");
+
+			if (moduleOptions == null)
+				throw new InvalidOperationException($"Couldn't create {nameof(DatabaseConfigOptions)} from database.json.");
+
 			//Add DB services depending on the config
-			if(databaseOptions.Value.useInMemoryDatabase)
+			if (databaseOptions.Value.useInMemoryDatabase)
 				services.AddEntityFrameworkInMemoryDatabase();
 			else
 				services.AddEntityFrameworkSqlServer();
