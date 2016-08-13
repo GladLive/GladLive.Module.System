@@ -34,7 +34,7 @@ namespace GladLive.Module.System.Server
 			{
 				try
 				{
-					Assembly ass = Assembly.LoadFile($"{path}/{args.Name}");
+					Assembly ass = Assembly.LoadWithPartialName($"{path}/{args.Name}".TrimEnd(".dll".ToArray()));
 
 					if (ass != null)
 						return ass;
@@ -81,18 +81,22 @@ namespace GladLive.Module.System.Server
 #if NETSTANDARD1_6
 				loadedModuleAssembly = AssemblyLoadContext.Default.LoadFromAssemblyPath(path);
 #else
-				loadedModuleAssembly = Assembly.LoadFile(path);
+				//Don't really want to have to have users specify fully qualified names
+#pragma warning disable CS0618 // Type or member is obsolete
+				loadedModuleAssembly = Assembly.LoadWithPartialName(path.TrimEnd(".dll".ToArray()));
+#pragma warning restore CS0618 // Type or member is obsolete
+
 #endif
 			}
 			catch(Exception e)
 			{
-				throw new DllNotFoundException($"Unable to located module DLL {path}. Error: {e.Message}", e);
+				throw new DllNotFoundException($"Unable to locate module DLL {path}. Error: {e.Message}", e);
 			}
 			finally
 			{
 				//Verify it has been loaded
 				if (loadedModuleAssembly == null)
-					throw new InvalidOperationException($"Unable to located module DLL {path}. Loaded a null assembly.");
+					throw new InvalidOperationException($"Unable to locate and load module DLL {path}. Loaded a null assembly.");
 			}
 		}
 

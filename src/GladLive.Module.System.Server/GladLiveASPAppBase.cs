@@ -57,10 +57,10 @@ namespace GladLive.Module.System.Server
 			IOptions<ModuleSystemOptions> moduleOptions = provider.GetService<IOptions<ModuleSystemOptions>>();
 			IOptions<DatabaseConfigOptions> databaseOptions = provider.GetService<IOptions<DatabaseConfigOptions>>();
 
-			if (moduleOptions == null)
+			if (moduleOptions == null || moduleOptions.Value == null)
 				throw new InvalidOperationException($"Couldn't create {nameof(ModuleSystemOptions)} from modules.json.");
 
-			if (moduleOptions == null)
+			if (moduleOptions == null || databaseOptions.Value == null)
 				throw new InvalidOperationException($"Couldn't create {nameof(DatabaseConfigOptions)} from database.json.");
 
 			//Add DB services depending on the config
@@ -72,34 +72,43 @@ namespace GladLive.Module.System.Server
 			//Register Mvc services and aquire builder
 			IMvcBuilder mvcBuilder = services.AddMvc();
 
-			//TODO: Refactor
-			//Find all the MvcBuilder and ServiceReg modules
-			foreach (string path in moduleOptions.Value.ServiceRegistrationModulesPaths)
+			try
 			{
-				ModuleLoader loader = new ModuleLoader(path);
-				
-				foreach(Type serviceRegisterType in loader.GetTypes<ServiceRegistrationModule>())
-				{
-					IRegisterModule module = Activator.CreateInstance(serviceRegisterType, new object[] { services, (Action<DbContextOptionsBuilder>)((DbContextOptionsBuilder options) =>
+				if(moduleOptions.Value.ServiceRegistrationModulesPaths != null)
+					//TODO: Refactor
+					//Find all the MvcBuilder and ServiceReg modules
+					foreach (string path in moduleOptions.Value.ServiceRegistrationModulesPaths)
 					{
-						if(databaseOptions.Value.useInMemoryDatabase)
-							options.UseInMemoryDatabase();
-						else
-							options.UseSqlServer(databaseOptions.Value.DatabaseConnectionString);
-					}) }) as IRegisterModule;
+						ModuleLoader loader = new ModuleLoader(path);
 
-					//Register the module.
-					module.Register();
-				}
+						foreach (Type serviceRegisterType in loader.GetTypes<ServiceRegistrationModule>())
+						{
+							IRegisterModule module = Activator.CreateInstance(serviceRegisterType, new object[] { services, (Action<DbContextOptionsBuilder>)((DbContextOptionsBuilder options) =>
+						{
+							if(databaseOptions.Value.useInMemoryDatabase)
+								options.UseInMemoryDatabase();
+							else
+								options.UseSqlServer(databaseOptions.Value.DatabaseConnectionString);
+						}) }) as IRegisterModule;
 
-				foreach (Type serviceRegisterType in loader.GetTypes<MvcBuilderServiceRegistrationModule>())
-				{
-					IRegisterModule module = Activator.CreateInstance(serviceRegisterType, new object[] { mvcBuilder }) as IRegisterModule;
+							//Register the module.
+							module.Register();
+						}
 
-					//Register the module.
-					module.Register();
-				}
+						foreach (Type serviceRegisterType in loader.GetTypes<MvcBuilderServiceRegistrationModule>())
+						{
+							IRegisterModule module = Activator.CreateInstance(serviceRegisterType, new object[] { mvcBuilder }) as IRegisterModule;
+
+							//Register the module.
+							module.Register();
+						}
+					}
 			}
+			catch(Exception e)
+			{
+				throw new InvalidOperationException($"Encountered Exception in Module registration: {e.Message}", e);
+			}
+			
 		}
 
 		public void Configure(IApplicationBuilder app, ILoggerFactory loggerFactory)
@@ -109,17 +118,18 @@ namespace GladLive.Module.System.Server
 
 			IOptions<ModuleSystemOptions> options = app.ApplicationServices.GetService<IOptions<ModuleSystemOptions>>();
 
-			foreach (string path in options.Value.ApplicationConfigurationModulesPaths)
-			{
-				//Only one should be in the app.
-				//ORDER MATTERS!
-				ModuleLoader loader = new ModuleLoader(path);
+			if (options.Value.ApplicationConfigurationModulesPaths != null)
+				foreach (string path in options.Value.ApplicationConfigurationModulesPaths)
+				{
+					//Only one should be in the app.
+					//ORDER MATTERS!
+					ModuleLoader loader = new ModuleLoader(path);
 
-				IRegisterModule module = Activator.CreateInstance(loader.GetType<ApplicationConfigurationModule>(), new object[] { app, loggerFactory }) as IRegisterModule;
+					IRegisterModule module = Activator.CreateInstance(loader.GetType<ApplicationConfigurationModule>(), new object[] { app, loggerFactory }) as IRegisterModule;
 
-				//Register the module.
-				module.Register();
-			}
+					//Register the module.
+					module.Register();
+				}
 
 			//Register MVC last in the pipeline. NO OTHER MODULE SHOULD REGISTER THIS!
 			app.UseMvc();
