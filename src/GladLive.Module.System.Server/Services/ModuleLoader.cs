@@ -58,13 +58,28 @@ namespace GladLive.Module.System.Server
 		{
 			string pathName = arg2.Name.Contains(".dll") ? arg2.Name : $"{arg2.Name}.dll";
 
-			foreach (string path in Directory.GetDirectories(Directory.GetCurrentDirectory()).Concat(new string[] { Directory.GetCurrentDirectory() }))
+			//Try to load it from the current directory first.
+			using (FileStream fs = new FileStream(Path.Combine(Directory.GetCurrentDirectory(), pathName), FileMode.Open))
+			{
+				Assembly ass = arg1.LoadFromStream(fs);
+
+				if (ass != null)
+					return ass;
+			}
+
+			//recurse through every subdirectory and subdirectories' subdirectories.
+			return TryResolveFromDirectory(arg1, Directory.GetCurrentDirectory(), pathName);
+		}
+
+		private static Assembly TryResolveFromDirectory(AssemblyLoadContext context, string path, string pathName)
+		{
+			foreach (string subDir in Directory.GetDirectories(path))
 			{
 				try
 				{
 					using (FileStream fs = new FileStream(Path.Combine(path, pathName), FileMode.Open))
 					{
-						Assembly ass = arg1.LoadFromStream(fs);
+						Assembly ass = context.LoadFromStream(fs);
 
 						if (ass != null)
 							return ass;
@@ -76,6 +91,18 @@ namespace GladLive.Module.System.Server
 				}
 			}
 
+			//recurse to subdirectories
+			foreach(string subDir in Directory.GetDirectories(path))
+			{
+				Assembly ass = TryResolveFromDirectory(context, subDir, pathName);
+
+				if (ass == null)
+					continue;
+				else
+					return ass;
+			}
+
+			//Wasn't in this tree
 			return null;
 		}
 #endif
