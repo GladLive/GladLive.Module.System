@@ -51,8 +51,8 @@ namespace GladLive.Module.System.Server
 			{
 				Assembly ass = null;
 
-				if (File.Exists(Path.Combine(path, pathName)))
-					ass = Assembly.Load(File.ReadAllBytes(Path.Combine(path, pathName)));
+				if (File.Exists(Path.Combine(subDir, pathName)))
+					ass = Assembly.Load(File.ReadAllBytes(Path.Combine(subDir, pathName)));
 
 				if (ass != null)
 					return ass;
@@ -101,7 +101,7 @@ namespace GladLive.Module.System.Server
 			{
 				try
 				{
-					using (FileStream fs = new FileStream(Path.Combine(path, pathName), FileMode.Open))
+					using (FileStream fs = new FileStream(Path.Combine(subDir, pathName), FileMode.Open))
 					{
 						Assembly ass = context.LoadFromStream(fs);
 
