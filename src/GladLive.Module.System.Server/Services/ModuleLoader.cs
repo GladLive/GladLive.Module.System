@@ -31,22 +31,46 @@ namespace GladLive.Module.System.Server
 
 		private static Assembly CurrentDomain_AssemblyResolve(object sender, ResolveEventArgs args)
 		{
-			foreach(string path in Directory.GetDirectories(Directory.GetCurrentDirectory()).Concat(new string[] { Directory.GetCurrentDirectory() }))
-			{
-				try
-				{
-					Assembly ass = Assembly.LoadWithPartialName(Path.Combine(path,args.Name).TrimEnd(".dll".ToArray()));
+			Assembly ass = null;
+			string pathName = args.Name.Contains(".dll") ? args.Name : $"{args.Name}.dll";
 
-					if (ass != null)
-						return ass;
-				}
-				catch(Exception e)
-				{
-					continue;
-				}
-			}
+			if (File.Exists(pathName))
+				ass = Assembly.Load(File.ReadAllBytes(pathName));
+
+			if (ass != null)
+				return ass;
+			else
+				ass = TryResolveFromDirectory(Directory.GetCurrentDirectory(), args.Name);
 
 			throw new InvalidOperationException($"Unable to find required assembly in any subdirectory. Name: {args.Name}");
+		}
+
+		private static Assembly TryResolveFromDirectory(string path, string pathName)
+		{
+			foreach (string subDir in Directory.GetDirectories(path))
+			{
+				Assembly ass = null;
+
+				if (File.Exists(Path.Combine(path, pathName)))
+					ass = Assembly.Load(File.ReadAllBytes(Path.Combine(path, pathName)));
+
+				if (ass != null)
+					return ass;
+			}
+
+			//recurse to subdirectories
+			foreach (string subDir in Directory.GetDirectories(path))
+			{
+				Assembly ass = TryResolveFromDirectory(subDir, pathName);
+
+				if (ass == null)
+					continue;
+				else
+					return ass;
+			}
+
+			//Wasn't in this tree
+			return null;
 		}
 #else
 		static ModuleLoader()
