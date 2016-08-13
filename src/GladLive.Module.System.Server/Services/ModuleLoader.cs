@@ -142,7 +142,7 @@ namespace GladLive.Module.System.Server
 #else
 				//Don't really want to have to have users specify fully qualified names
 #pragma warning disable CS0618 // Type or member is obsolete
-				loadedModuleAssembly = Assembly.LoadWithPartialName(path.TrimEnd(".dll".ToArray()));
+				loadedModuleAssembly = CurrentDomain_AssemblyResolve(this, new ResolveEventArgs(path));
 #pragma warning restore CS0618 // Type or member is obsolete
 
 #endif
