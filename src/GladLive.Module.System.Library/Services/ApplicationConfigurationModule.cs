@@ -12,6 +12,7 @@ namespace GladLive.Module.System.Library
 	/// <summary>
 	/// Module for configuring the pipeline and application for GladLive.
 	/// Inherit this class to configure <see cref="IApplicationBuilder"/> for the ASP server.
+	/// Inheritors must NOT modify the constructor.
 	/// </summary>
 	public class ApplicationConfigurationModule
 	{
@@ -30,7 +31,7 @@ namespace GladLive.Module.System.Library
 		/// </summary>
 		/// <param name="app"></param>
 		/// <param name="loggerFactory"></param>
-		public ApplicationConfigurationModule(IApplicationBuilder app, ILoggerFactory loggerFactory)
+		protected ApplicationConfigurationModule(IApplicationBuilder app, ILoggerFactory loggerFactory)
 		{
 			if (app == null)
 				throw new ArgumentNullException(nameof(app), $"Provided ASP service {nameof(IApplicationBuilder)} is null.");

@@ -28,7 +28,7 @@ namespace GladLive.Module.System.Library
 		/// </summary>
 		/// <param name="services">The DI container registration collection.</param>
 		/// <param name="options">Optional configureation options for any DBContext additions to services.</param>
-		public ServiceRegistrationModule(IServiceCollection services, Action<DbContextOptionsBuilder> options = null)
+		protected ServiceRegistrationModule(IServiceCollection services, Action<DbContextOptionsBuilder> options = null)
 		{
 			if (services == null)
 				throw new ArgumentNullException(nameof(services), $"Provided ASP service {nameof(IServiceCollection)} is null.");
