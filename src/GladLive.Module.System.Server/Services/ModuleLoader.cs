@@ -31,7 +31,7 @@ namespace GladLive.Module.System.Server
 
 		private static Assembly CurrentDomain_AssemblyResolve(object sender, ResolveEventArgs args)
 		{
-			foreach(string path in Directory.GetDirectories(Directory.GetCurrentDirectory()))
+			foreach(string path in Directory.GetDirectories(Directory.GetCurrentDirectory()).Concat(new string[] { Directory.GetCurrentDirectory() }))
 			{
 				try
 				{
@@ -56,11 +56,12 @@ namespace GladLive.Module.System.Server
 
 		private static Assembly Default_Resolving(AssemblyLoadContext arg1, AssemblyName arg2)
 		{
+			string pathName = arg2.Name.Contains(".dll") ? arg2.Name : $"{arg2.Name}.dll";
+
 			foreach (string path in Directory.GetDirectories(Directory.GetCurrentDirectory()).Concat(new string[] { Directory.GetCurrentDirectory() }))
 			{
 				try
 				{
-					string pathName = arg2.Name.Contains(".dll") ? arg2.Name : $"{arg2.Name}.dll";
 					using (FileStream fs = new FileStream(Path.Combine(path, pathName), FileMode.Open))
 					{
 						Assembly ass = arg1.LoadFromStream(fs);
@@ -84,10 +85,7 @@ namespace GladLive.Module.System.Server
 			try
 			{
 #if NETSTANDARD1_6
-				using (FileStream fs = new FileStream(path, FileMode.Open))
-				{
-					loadedModuleAssembly = Default_Resolving(AssemblyLoadContext.Default, new AssemblyName() { Name = path });
-				}
+				loadedModuleAssembly = Default_Resolving(AssemblyLoadContext.Default, new AssemblyName() { Name = path });
 #else
 				//Don't really want to have to have users specify fully qualified names
 #pragma warning disable CS0618 // Type or member is obsolete
