@@ -2,16 +2,23 @@
 
 GladLive is network service comparable to Xboxlive or Steam. 
 
-GladLive.Payload provides a centralized repo for common payloads or payload logic for the GladLive distributed network providing:
-  - Simplified payload metadata marking
-  - GladLive message type information
-  - Defines the Hello request/response scheme
+GladLive.Module.System is a module system library and server base for creating modular ASP applications providing:
+  - Ability to modularly register controllers
+  - Ability to modularly register services
+  - Ability to modularlity augment the HTTP pipeline with middlewares
+  - Allow configuration without recompilation using *.json files
+  - Let's you build either a Monolithic server application or several microservices all without recreating an ASP server
+  
+## How does it work?
 
-## GladLive Services
+This module system provides 3 key modules that can be implemented in your library:
+  - ServiceRegistrationModule - IServiceCollection
+  - MvcBuilderServiceRegistrationModule - IMvcBuilder
+  - ApplicationConfigurationModule - IApplicationBuilder
 
-GladLive.PatchingService: https://github.com/GladLive/GladLive.PatchingService
+Those three modules mirror the typical setup for an ASP core service. By implementing those modules in the GladLive libraries, or your own libraries, you can augment the a GladLive module server.
 
-GladLive.AuthService.ASP: https://github.com/GladLive/GladLive.AuthService.ASP
+Registering your modules is as easy as adding them to the GladLive module server's modules.json file. Provide the path and the rest is handled by the application.
 
 ## Setup
 
@@ -30,8 +37,8 @@ Available on HelloKitty Nuget feed:  https://www.myget.org/F/hellokitty/api/v2
 #### Linux/Mono - Unit Tests
 ||Debug x86|Debug x64|Release x86|Release x64|
 |:--:|:--:|:--:|:--:|:--:|:--:|
-|**master**| N/A | N/A | N/A | [![Build Status](https://travis-ci.org/GladLive/GladLive.Payload.svg?branch=master)](https://travis-ci.org/GladLive/GladLive.Payload) |
-|**dev**| N/A | N/A | N/A | [![Build Status](https://travis-ci.org/GladLive/GladLive.Payload.svg?branch=dev)](https://travis-ci.org/GladLive/GladLive.Payload)|
+|**master**| N/A | N/A | N/A | [![Build Status](https://travis-ci.org/GladLive/GladLive.Module.System.svg?branch=master)](https://travis-ci.org/GladLive/GladLive.Payload) |
+|**dev**| N/A | N/A | N/A | [![Build Status](https://travis-ci.org/GladLiveGladLive.Module.System.svg?branch=dev)](https://travis-ci.org/GladLive/GladLive.Module.System)|
 
 #### Windows - Unit Tests
 
