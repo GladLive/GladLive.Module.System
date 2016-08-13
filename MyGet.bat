@@ -1,3 +1,2 @@
-dotnet pack src/GladLive.Payload.Common/ -c Release
-dotnet pack src/GladLive.Payload.Profile/ -c Release
-dotnet pack src/GladLive.Payload.Lobby/ -c Release
+dotnet pack src/GladLive.Module.System.Library/ -c Release
+dotnet pack src/GladLive.Module.System.Server/ -c Release
