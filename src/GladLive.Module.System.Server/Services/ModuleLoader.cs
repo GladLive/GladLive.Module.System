@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Extensions.DependencyModel;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -34,7 +35,7 @@ namespace GladLive.Module.System.Server
 			{
 				try
 				{
-					Assembly ass = Assembly.LoadWithPartialName($"{path}/{args.Name}".TrimEnd(".dll".ToArray()));
+					Assembly ass = Assembly.LoadWithPartialName(Path.Combine(path,args.Name).TrimEnd(".dll".ToArray()));
 
 					if (ass != null)
 						return ass;
@@ -55,13 +56,14 @@ namespace GladLive.Module.System.Server
 
 		private static Assembly Default_Resolving(AssemblyLoadContext arg1, AssemblyName arg2)
 		{
-			foreach (string path in Directory.GetDirectories(Directory.GetCurrentDirectory()))
+			foreach (string path in Directory.GetDirectories(Directory.GetCurrentDirectory()).Concat(new string[] { Directory.GetCurrentDirectory() }))
 			{
 				try
 				{
-					using (FileStream fs = new FileStream(Path.Combine(path, arg2.Name), FileMode.Open))
+					string pathName = arg2.Name.Contains(".dll") ? arg2.Name : $"{arg2.Name}.dll";
+					using (FileStream fs = new FileStream(Path.Combine(path, pathName), FileMode.Open))
 					{
-						Assembly ass = AssemblyLoadContext.Default.LoadFromStream(fs);
+						Assembly ass = arg1.LoadFromStream(fs);
 
 						if (ass != null)
 							return ass;
@@ -73,7 +75,7 @@ namespace GladLive.Module.System.Server
 				}
 			}
 
-			throw new InvalidOperationException($"Unable to find required assembly in any subdirectory. Name: {arg2.Name}");
+			return null;
 		}
 #endif
 
@@ -84,7 +86,7 @@ namespace GladLive.Module.System.Server
 #if NETSTANDARD1_6
 				using (FileStream fs = new FileStream(path, FileMode.Open))
 				{
-					loadedModuleAssembly = AssemblyLoadContext.Default.LoadFromStream(fs);
+					loadedModuleAssembly = Default_Resolving(AssemblyLoadContext.Default, new AssemblyName() { Name = path });
 				}
 #else
 				//Don't really want to have to have users specify fully qualified names
