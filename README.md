@@ -1,4 +1,4 @@
-# GladLive.Payload
+# GladLive.Module.System
 
 GladLive is network service comparable to Xboxlive or Steam. 
 
