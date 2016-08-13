@@ -59,10 +59,13 @@ namespace GladLive.Module.System.Server
 			{
 				try
 				{
-					Assembly ass = arg1.LoadFromAssemblyPath($"{path}/{arg2.Name}");
+					using (FileStream fs = new FileStream(Path.Combine(path, arg2.Name), FileMode.Open))
+					{
+						Assembly ass = AssemblyLoadContext.Default.LoadFromStream(fs);
 
-					if (ass != null)
-						return ass;
+						if (ass != null)
+							return ass;
+					}
 				}
 				catch (Exception e)
 				{
@@ -79,7 +82,10 @@ namespace GladLive.Module.System.Server
 			try
 			{
 #if NETSTANDARD1_6
-				loadedModuleAssembly = AssemblyLoadContext.Default.LoadFromAssemblyPath(path);
+				using (FileStream fs = new FileStream(path, FileMode.Open))
+				{
+					loadedModuleAssembly = AssemblyLoadContext.Default.LoadFromStream(fs);
+				}
 #else
 				//Don't really want to have to have users specify fully qualified names
 #pragma warning disable CS0618 // Type or member is obsolete
