@@ -41,7 +41,7 @@ namespace GladLive.Module.System.Server
 		}
 
 
-		public void ConfigureServices(IServiceCollection services)
+		public virtual void ConfigureServices(IServiceCollection services)
 		{
 			services.AddLogging();
 			services.AddOptions();
@@ -108,7 +108,6 @@ namespace GladLive.Module.System.Server
 			{
 				throw new InvalidOperationException($"Encountered Exception in Module registration: {e.Message}", e);
 			}
-			
 		}
 
 		public void Configure(IApplicationBuilder app, ILoggerFactory loggerFactory)
