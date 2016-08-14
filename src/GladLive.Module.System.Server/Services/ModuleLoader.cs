@@ -83,7 +83,6 @@ namespace GladLive.Module.System.Server
 					//Check the appdomain and see if we can find an assembly loaded with that name already
 					if (AppDomain.CurrentDomain.GetAssemblies().Where(a => a.GetName().FullName == name.FullName).Count() == 0)
 					{
-						Console.WriteLine($"Trying to load: {name.FullName} Short Name: {name.Name}");
 						try
 						{
 							//Probably will fail

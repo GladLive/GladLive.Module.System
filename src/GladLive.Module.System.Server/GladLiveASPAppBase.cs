@@ -84,12 +84,12 @@ namespace GladLive.Module.System.Server
 						foreach (Type serviceRegisterType in loader.GetTypes<ServiceRegistrationModule>())
 						{
 							IRegisterModule module = Activator.CreateInstance(serviceRegisterType, new object[] { services, (Action<DbContextOptionsBuilder>)((DbContextOptionsBuilder options) =>
-						{
-							if(databaseOptions.Value.useInMemoryDatabase)
-								options.UseInMemoryDatabase();
-							else
-								options.UseSqlServer(databaseOptions.Value.DatabaseConnectionString);
-						}) }) as IRegisterModule;
+							{
+								if(databaseOptions.Value.useInMemoryDatabase)
+									options.UseInMemoryDatabase();
+								else
+									options.UseSqlServer(databaseOptions.Value.DatabaseConnectionString);
+							}) }) as IRegisterModule;
 
 							//Register the module.
 							module.Register();
