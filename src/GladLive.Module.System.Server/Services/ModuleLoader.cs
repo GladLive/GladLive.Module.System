@@ -42,7 +42,7 @@ namespace GladLive.Module.System.Server
 			else
 				ass = TryResolveFromDirectory(Directory.GetCurrentDirectory(), args.Name);
 
-			throw new InvalidOperationException($"Unable to find required assembly in any subdirectory. Name: {args.Name}");
+			return ass;
 		}
 
 		private static Assembly TryResolveFromDirectory(string path, string pathName)
