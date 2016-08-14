@@ -40,17 +40,17 @@ namespace GladLive.Module.System.Server
 			if (ass != null)
 				return ass;
 			else
-				ass = TryResolveFromDirectory(Directory.GetCurrentDirectory(), args.Name);
+				ass = TryResolveFromDirectory(Directory.GetCurrentDirectory(), pathName);
 
 			return ass;
 		}
 
 		private static Assembly TryResolveFromDirectory(string path, string pathName)
 		{
+			Assembly ass = null;
+
 			foreach (string subDir in Directory.GetDirectories(path))
 			{
-				Assembly ass = null;
-
 				if (File.Exists(Path.Combine(subDir, pathName)))
 					ass = Assembly.Load(File.ReadAllBytes(Path.Combine(subDir, pathName)));
 
@@ -61,7 +61,7 @@ namespace GladLive.Module.System.Server
 			//recurse to subdirectories
 			foreach (string subDir in Directory.GetDirectories(path))
 			{
-				Assembly ass = TryResolveFromDirectory(subDir, pathName);
+				ass = TryResolveFromDirectory(subDir, pathName);
 
 				if (ass == null)
 					continue;
