@@ -72,6 +72,30 @@ namespace GladLive.Module.System.Server
 			//Wasn't in this tree
 			return null;
 		}
+
+		private void LoadAllDepdencyAssemblies(Assembly assembly, string assemblyName)
+		{
+			//We need to load all dependency assemblies too
+			if (assembly != null)
+				foreach (AssemblyName name in assembly.GetReferencedAssemblies())
+				{
+					//Check the appdomain and see if we can find an assembly loaded with that name already
+					if (AppDomain.CurrentDomain.GetAssemblies().Where(a => a.GetName().FullName == name.FullName).Count() == 0)
+					{
+						try
+						{
+							//Probably will fail
+							LoadAllDepdencyAssemblies(Assembly.Load(name.FullName), name.FullName);
+						}
+						catch(Exception e)
+						{
+							LoadAllDepdencyAssemblies(CurrentDomain_AssemblyResolve(this, new ResolveEventArgs(name.Name)), name.FullName);
+						}
+					}
+				}
+			else
+				throw new InvalidOperationException($"The Assembly: {assemblyName} could not be loaded.");
+		}
 #else
 		static ModuleLoader()
 		{
@@ -145,6 +169,8 @@ namespace GladLive.Module.System.Server
 				loadedModuleAssembly = CurrentDomain_AssemblyResolve(this, new ResolveEventArgs(path));
 #pragma warning restore CS0618 // Type or member is obsolete
 
+				if(loadedModuleAssembly != null)
+					LoadAllDepdencyAssemblies(loadedModuleAssembly, loadedModuleAssembly.FullName);
 #endif
 			}
 			catch(Exception e)
