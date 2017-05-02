@@ -64,11 +64,12 @@ namespace GladLive.Module.System.Server
 			if (moduleOptions == null || databaseOptions.Value == null)
 				throw new InvalidOperationException($"Couldn't create {nameof(DatabaseConfigOptions)} from database.json.");
 
+			//TODO: Add support for multiple DB providers
 			//Add DB services depending on the config
 			if (databaseOptions.Value.useInMemoryDatabase)
 				services.AddEntityFrameworkInMemoryDatabase();
 			else
-				services.AddEntityFrameworkSqlServer();
+				services.AddEntityFrameworkMySql();
 
 			//Register Mvc services and aquire builder
 			IMvcBuilder mvcBuilder = services.AddMvc();
@@ -89,7 +90,7 @@ namespace GladLive.Module.System.Server
 								if(databaseOptions.Value.useInMemoryDatabase)
 									options.UseInMemoryDatabase();
 								else
-									options.UseSqlServer(databaseOptions.Value.DatabaseConnectionString);
+									options.UseMySql(databaseOptions.Value.DatabaseConnectionString);
 							}) }) as IRegisterModule;
 
 							//Register the module.

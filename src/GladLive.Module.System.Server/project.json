@@ -3,14 +3,14 @@
   "dependencies": {
     "GladLive.Module.System.Library": "1.0.0-*",
     "Microsoft.EntityFrameworkCore.InMemory": "1.1.1",
-    "Microsoft.EntityFrameworkCore.SqlServer": "1.1.1",
     "Microsoft.Extensions.Configuration": "1.1.1",
     "Microsoft.Extensions.Configuration.EnvironmentVariables": "1.1.1",
     "Microsoft.Extensions.Configuration.FileExtensions": "1.1.1",
     "Microsoft.Extensions.Configuration.Json": "1.1.1",
     "Microsoft.Extensions.Logging.Console": "1.1.1",
     "Microsoft.Extensions.Options.ConfigurationExtensions": "1.1.1",
-    "NETStandard.Library": "1.6.1"
+    "NETStandard.Library": "1.6.1",
+    "Pomelo.EntityFrameworkCore.MySql": "1.1.1"
   },
     "frameworks": {
         "net451": {
@@ -22,12 +22,12 @@
             }
         },
         "net46": {
-            "dependencies": {
-            }
+          "dependencies": {
+          }
         },
         "net461": {
-            "dependencies": {
-            }
+          "dependencies": {
+          }
         }
     },
     "buildOptions": {
