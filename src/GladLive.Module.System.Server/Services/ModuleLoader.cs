@@ -35,6 +35,12 @@ namespace GladLive.Module.System.Server
 			string nonFullName = args.Name.Split(',').FirstOrDefault();
 			string pathName = nonFullName.Contains(".dll") ? nonFullName : $"{nonFullName}.dll";
 
+			//TODO: Do we need this?
+			Assembly potentialAlreadyLoadedNonExact = AppDomain.CurrentDomain.GetAssemblies().FirstOrDefault(a => a.FullName.Split(',').FirstOrDefault() == nonFullName);
+
+			if(potentialAlreadyLoadedNonExact != null)
+				return potentialAlreadyLoadedNonExact;
+
 			if (File.Exists(pathName))
 				ass = Assembly.Load(File.ReadAllBytes(pathName));
 
@@ -81,7 +87,7 @@ namespace GladLive.Module.System.Server
 				foreach (AssemblyName name in assembly.GetReferencedAssemblies())
 				{
 					//Check the appdomain and see if we can find an assembly loaded with that name already
-					if (AppDomain.CurrentDomain.GetAssemblies().Where(a => a.GetName().FullName == name.FullName).Count() == 0)
+					if (!AppDomain.CurrentDomain.GetAssemblies().Where(a => a.GetName().FullName == name.FullName).Any())
 					{
 						try
 						{

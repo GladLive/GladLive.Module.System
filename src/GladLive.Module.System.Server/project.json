@@ -13,11 +13,6 @@
     "NETStandard.Library": "1.6.1"
   },
     "frameworks": {
-        "netstandard1.6": {
-            "imports": "dnxcore50",
-            "dependencies": {
-            }
-        },
         "net451": {
             "dependencies": {
             }
