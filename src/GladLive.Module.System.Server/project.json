@@ -1,21 +1,21 @@
 {
   "version": "1.0.0-*",
-    "dependencies": {
-        "GladLive.Module.System.Library": "1.0.0-*",
-        "Microsoft.EntityFrameworkCore.InMemory": "1.0.0",
-        "Microsoft.EntityFrameworkCore.SqlServer": "1.0.0",
-        "Microsoft.Extensions.Configuration": "1.0.0",
-        "Microsoft.Extensions.Configuration.EnvironmentVariables": "1.0.0",
-        "Microsoft.Extensions.Configuration.FileExtensions": "1.0.0",
-        "Microsoft.Extensions.Configuration.Json": "1.0.0",
-        "Microsoft.Extensions.Logging.Console": "1.0.0",
-        "Microsoft.Extensions.Options.ConfigurationExtensions": "1.0.0"
-    },
+  "dependencies": {
+    "GladLive.Module.System.Library": "1.0.0-*",
+    "Microsoft.EntityFrameworkCore.InMemory": "1.1.1",
+    "Microsoft.EntityFrameworkCore.SqlServer": "1.1.1",
+    "Microsoft.Extensions.Configuration": "1.1.1",
+    "Microsoft.Extensions.Configuration.EnvironmentVariables": "1.1.1",
+    "Microsoft.Extensions.Configuration.FileExtensions": "1.1.1",
+    "Microsoft.Extensions.Configuration.Json": "1.1.1",
+    "Microsoft.Extensions.Logging.Console": "1.1.1",
+    "Microsoft.Extensions.Options.ConfigurationExtensions": "1.1.1",
+    "NETStandard.Library": "1.6.1"
+  },
     "frameworks": {
         "netstandard1.6": {
             "imports": "dnxcore50",
             "dependencies": {
-                "NETStandard.Library": "1.6.0"
             }
         },
         "net451": {
