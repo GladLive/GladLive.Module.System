@@ -58,10 +58,10 @@ namespace GladLive.Module.System.Server
 			IOptions<ModuleSystemOptions> moduleOptions = provider.GetService<IOptions<ModuleSystemOptions>>();
 			IOptions<DatabaseConfigOptions> databaseOptions = provider.GetService<IOptions<DatabaseConfigOptions>>();
 
-			if (moduleOptions == null || moduleOptions.Value == null)
+			if (moduleOptions?.Value == null)
 				throw new InvalidOperationException($"Couldn't create {nameof(ModuleSystemOptions)} from modules.json.");
 
-			if (moduleOptions == null || databaseOptions.Value == null)
+			if (databaseOptions == null || databaseOptions.Value == null)
 				throw new InvalidOperationException($"Couldn't create {nameof(DatabaseConfigOptions)} from database.json.");
 
 			//TODO: Add support for multiple DB providers
@@ -76,35 +76,42 @@ namespace GladLive.Module.System.Server
 
 			try
 			{
-				if(moduleOptions.Value.ServiceRegistrationModulesPaths != null)
-					//TODO: Refactor
-					//Find all the MvcBuilder and ServiceReg modules
-					foreach (string path in moduleOptions.Value.ServiceRegistrationModulesPaths)
+				//This means we have no services that need registering
+				if (moduleOptions.Value.ServiceRegistrationModulesPaths == null)
+					return;
+
+				foreach (string path in moduleOptions.Value.ServiceRegistrationModulesPaths)
+				{
+					ModuleLoader loader = new ModuleLoader(path);
+
+					foreach (Type serviceRegisterType in loader.GetTypes<ServiceRegistrationModule>())
 					{
-						ModuleLoader loader = new ModuleLoader(path);
-
-						foreach (Type serviceRegisterType in loader.GetTypes<ServiceRegistrationModule>())
+						IRegisterModule module = Activator.CreateInstance(serviceRegisterType, new object[] { services, (Action<DbContextOptionsBuilder>)((DbContextOptionsBuilder options) =>
 						{
-							IRegisterModule module = Activator.CreateInstance(serviceRegisterType, new object[] { services, (Action<DbContextOptionsBuilder>)((DbContextOptionsBuilder options) =>
-							{
-								if(databaseOptions.Value.useInMemoryDatabase)
-									options.UseInMemoryDatabase();
-								else
-									options.UseMySql(databaseOptions.Value.DatabaseConnectionString);
-							}) }) as IRegisterModule;
+							if(databaseOptions.Value.useInMemoryDatabase)
+								options.UseInMemoryDatabase();
+							else
+								options.UseMySql(databaseOptions.Value.DatabaseConnectionString);
+						}) }) as IRegisterModule;
 
-							//Register the module.
-							module.Register();
-						}
+						if(module == null)
+							throw new InvalidOperationException($"Failed to create an instance for derived {nameof(ServiceRegistrationModule)} Type: {serviceRegisterType.FullName}.");
 
-						foreach (Type serviceRegisterType in loader.GetTypes<MvcBuilderServiceRegistrationModule>())
-						{
-							IRegisterModule module = Activator.CreateInstance(serviceRegisterType, new object[] { mvcBuilder }) as IRegisterModule;
-
-							//Register the module.
-							module.Register();
-						}
+						//Register the module.
+						module.Register();
 					}
+
+					foreach (Type serviceRegisterType in loader.GetTypes<MvcBuilderServiceRegistrationModule>())
+					{
+						IRegisterModule module = Activator.CreateInstance(serviceRegisterType, new object[] { mvcBuilder }) as IRegisterModule;
+
+						if (module == null)
+							throw new InvalidOperationException($"Failed to create an instance for derived {nameof(MvcBuilderServiceRegistrationModule)} Type: {serviceRegisterType.FullName}.");
+
+						//Register the module.
+						module.Register();
+					}
+				}
 			}
 			catch(Exception e)
 			{
@@ -127,6 +134,9 @@ namespace GladLive.Module.System.Server
 					ModuleLoader loader = new ModuleLoader(path);
 
 					IRegisterModule module = Activator.CreateInstance(loader.GetType<ApplicationConfigurationModule>(), new object[] { app, loggerFactory }) as IRegisterModule;
+
+					if (module == null)
+						throw new InvalidOperationException($"Failed to create an instance for derived {nameof(ApplicationConfigurationModule)} Type: {loader.GetType<ApplicationConfigurationModule>().FullName}.");
 
 					//Register the module.
 					module.Register();

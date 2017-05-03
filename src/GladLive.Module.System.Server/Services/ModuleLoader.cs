@@ -32,7 +32,7 @@ namespace GladLive.Module.System.Server
 		private static Assembly CurrentDomain_AssemblyResolve(object sender, ResolveEventArgs args)
 		{
 			Assembly ass = null;
-			string nonFullName = args.Name.Split(',').FirstOrDefault();
+			string nonFullName = args.Name.Split(',').First();
 			string pathName = nonFullName.Contains(".dll") ? nonFullName : $"{nonFullName}.dll";
 
 			//TODO: Do we need this?
@@ -44,12 +44,7 @@ namespace GladLive.Module.System.Server
 			if (File.Exists(pathName))
 				ass = Assembly.Load(File.ReadAllBytes(pathName));
 
-			if (ass != null)
-				return ass;
-			else
-				ass = TryResolveFromDirectory(Directory.GetCurrentDirectory(), pathName);
-
-			return ass;
+			return ass ?? TryResolveFromDirectory(Directory.GetCurrentDirectory(), pathName);
 		}
 
 		private static Assembly TryResolveFromDirectory(string path, string pathName)
@@ -70,9 +65,7 @@ namespace GladLive.Module.System.Server
 			{
 				ass = TryResolveFromDirectory(subDir, pathName);
 
-				if (ass == null)
-					continue;
-				else
+				if (ass != null)
 					return ass;
 			}
 
@@ -83,25 +76,25 @@ namespace GladLive.Module.System.Server
 		private void LoadAllDepdencyAssemblies(Assembly assembly, string assemblyName)
 		{
 			//We need to load all dependency assemblies too
-			if (assembly != null)
-				foreach (AssemblyName name in assembly.GetReferencedAssemblies())
-				{
-					//Check the appdomain and see if we can find an assembly loaded with that name already
-					if (!AppDomain.CurrentDomain.GetAssemblies().Where(a => a.GetName().FullName == name.FullName).Any())
-					{
-						try
-						{
-							//Probably will fail
-							LoadAllDepdencyAssemblies(Assembly.Load(name.FullName), name.FullName);
-						}
-						catch(Exception e)
-						{
-							LoadAllDepdencyAssemblies(CurrentDomain_AssemblyResolve(this, new ResolveEventArgs(name.Name)), name.FullName);
-						}
-					}
-				}
-			else
+			if (assembly == null)
 				throw new InvalidOperationException($"The Assembly: {assemblyName} could not be loaded.");
+
+			foreach (AssemblyName name in assembly.GetReferencedAssemblies())
+			{
+				//Check the appdomain and see if we can find an assembly loaded with that name already
+				if (AppDomain.CurrentDomain.GetAssemblies().Where(a => a.GetName().FullName == name.FullName).Any())
+					continue;
+
+				try
+				{
+					//Probably will fail
+					LoadAllDepdencyAssemblies(Assembly.Load(name.FullName), name.FullName);
+				}
+				catch(Exception)
+				{
+					LoadAllDepdencyAssemblies(CurrentDomain_AssemblyResolve(this, new ResolveEventArgs(name.Name)), name.FullName);
+				}
+			}
 		}
 #else
 		static ModuleLoader()
@@ -195,14 +188,14 @@ namespace GladLive.Module.System.Server
 		public IEnumerable<Type> GetTypes<TTargetType>()
 			where TTargetType : class
 		{
-			return this.loadedModuleAssembly.GetTypes()
+			return loadedModuleAssembly.GetTypes()
 				.Where(t => typeof(TTargetType).IsAssignableFrom(t)); //find all types that are children of TTargetType
 		}
 
 		public Type GetType<TTargetType>()
 			where TTargetType : class
 		{
-			return this.loadedModuleAssembly.GetTypes()
+			return loadedModuleAssembly.GetTypes()
 				.First(t => typeof(TTargetType).IsAssignableFrom(t)); //find the TTargetType child.
 		}
 	}
